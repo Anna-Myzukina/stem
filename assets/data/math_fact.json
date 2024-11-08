@@ -1,0 +1,124 @@
+{
+  "fact": [
+    {
+      "title": "Origins of Zero",
+      "fact": "The number zero (0) was invented independently by the Babylonians, Mayans, and Indians."
+    },
+    {
+      "title": "The Mystery of Pi",
+      "fact": "The mathematical constant pi (π) is an irrational number, meaning its decimal representation never ends and never repeats."
+    },
+    {
+      "title": "Fibonacci in Nature",
+      "fact": "The Fibonacci sequence appears in nature, such as in the arrangement of leaves on plants and the spiral patterns of seashells."
+    },
+    {
+      "title": "Egyptian Mathematics",
+      "fact": "The ancient Egyptians used a sophisticated system of mathematics to build the pyramids."
+    },
+    {
+      "title": "Ramanujan's Contributions",
+      "fact": "The mathematician Srinivasa Ramanujan made significant contributions to number theory, despite having little formal training."
+    },
+    {
+      "title": "Infinity in Mathematics",
+      "fact": "The concept of infinity is a fascinating topic in mathematics, with different types of infinity being studied."
+    },
+    {
+      "title": "Pythagorean Theorem",
+      "fact": "The Pythagorean Theorem, a^2 + b^2 = c^2, is one of the most famous theorems in mathematics."
+    },
+    {
+      "title": "Turing and Computing",
+      "fact": "The mathematician Alan Turing's work on theoretical computer science laid the foundation for modern computing."
+    },
+    {
+      "title": "Prime Numbers and Cryptography",
+      "fact": "The number theory problem of finding large prime numbers has important applications in cryptography."
+    },
+    {
+      "title": "The Fascination of Fractals",
+      "fact": "The concept of fractals, geometric shapes containing detailed structure at arbitrarily small scales, has fascinated mathematicians and artists alike."
+    },
+    {
+      "title": "The Golden Ratio",
+      "fact": "The Golden Ratio, a mathematical ratio found in nature and art, can be seen in the proportions of the human body, the Parthenon, and the Mona Lisa."
+    },
+    {
+      "title": "Fractals in Nature and Art",
+      "fact": "Fractals, complex patterns that repeat at different scales, are found in nature (e.g., coastlines, snowflakes) and are used in computer graphics and art."
+    },
+    {
+      "title": "Mathematics in Renaissance Art",
+      "fact": "The mathematical concept of perspective was crucial to the development of Renaissance art, allowing artists to create realistic and three-dimensional representations."
+    },
+    {
+      "title": "Music Theory and Mathematics",
+      "fact": "Music theory is heavily based on mathematical ratios and proportions, particularly the Pythagorean tuning system."
+    },
+    {
+      "title": "Fibonacci Sequence in Art",
+      "fact": "The Fibonacci sequence, a series of numbers where each number is the sum of the two preceding ones, appears in nature, art, and architecture."
+    },
+    {
+      "title": "Pythagorean Philosophy",
+      "fact": "The ancient Greeks, particularly Pythagoras, believed that numbers were the fundamental building blocks of the universe."
+    },
+    {
+      "title": "Symmetry in Art",
+      "fact": "The mathematical concept of symmetry is found in many forms of art, from painting and sculpture to architecture and dance."
+    },
+    {
+      "title": "Liu Hui's Calculation of Pi",
+      "fact": "The Chinese mathematician Liu Hui calculated pi to five decimal places in the 3rd century AD."
+    },
+    {
+      "title": "Ramanujan's Number Theory",
+      "fact": "The Indian mathematician Srinivasa Ramanujan made significant contributions to number theory, including the Ramanujan prime and the Ramanujan theta function."
+    },
+    {
+      "title": "Infinity and Calculus",
+      "fact": "The concept of infinity has fascinated mathematicians for centuries, leading to the development of calculus and other advanced mathematical fields."
+    },
+    {
+      "title": "Fibonacci Sequence in Nature",
+      "fact": "Did you know that the Fibonacci sequence, a series of numbers where each number is the sum of the two preceding ones, can be found in nature, from the spiral patterns of seashells to the branching of trees?"
+    },
+    {
+      "title": "Binary Code and Computers",
+      "fact": "Ever wondered how computers understand and process information? Binary code, a system of ones and zeros, is the language of computers, and it's based on mathematical principles."
+    },
+    {
+      "title": "Golden Ratio in Art",
+      "fact": "The Golden Ratio, a special number approximately equal to 1.618, is often found in art, architecture, and nature. It's believed to be aesthetically pleasing to the human eye."
+    },
+    {
+      "title": "Fractals in Nature",
+      "fact": "Fractals are infinitely complex patterns that repeat themselves at different scales. They can be found in nature, such as coastlines and snowflakes, and are used in computer graphics and art."
+    },
+    {
+      "title": "Pythagoras and the Universe",
+      "fact": "The ancient Greek mathematician Pythagoras believed that numbers were the building blocks of the universe. His famous theorem, a² + b² = c², is still used today in various fields of mathematics and science."
+    },
+    {
+      "title": "Maria Agnesi's Contributions",
+      "fact": "Maria Agnesi was an 18th-century Italian mathematician who wrote one of the earliest textbooks on differential and integral calculus. She was also a gifted linguist and philosopher."
+    },
+    {
+      "title": "Ada Lovelace: First Programmer",
+      "fact": "Ada Lovelace, often considered the world's first computer programmer, worked with Charles Babbage to develop the Analytical Engine, a precursor to modern computers."
+    },
+    {
+      "title": "Concept of Infinity",
+      "fact": "The concept of infinity, the idea of something without any bound or larger than any natural number, has fascinated mathematicians for centuries. It's a mind-bending concept that has led to many groundbreaking discoveries."
+    },
+    {
+      "title": "Game Theory",
+      "fact": "Game theory, a branch of mathematics that studies strategic decision-making, has applications in economics, political science, and even psychology."
+    },
+    {
+      "title": "Cryptography and Mathematics",
+      "fact": "Cryptography, the practice of secure communication, relies heavily on mathematical principles, such as number theory and probability theory."
+    }
+  ]
+}

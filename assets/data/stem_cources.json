@@ -1,0 +1,276 @@
+{
+    "disciplines": {
+        "computerScience": [
+            {
+                "id": "0",
+                "courseName": "CS50's Introduction to Computer Science",
+                "organization": "Harvard University",
+                "link": "https://pll.harvard.edu/course/cs50-introduction-computer-science",
+                "image": "",
+                "description": ""
+            },
+            {
+                "id": "1",
+                "courseName": "Python for Everybody",
+                "organization": "University of Michigan",
+                "link": "https://www.coursera.org/specializations/python",
+                "image": "",
+                "description": ""
+            },
+            {
+                "id": "2",
+                "courseName": "Learn to Code",
+                "organization": "freeCodeCamp",
+                "link": "https://www.freecodecamp.org/",
+                "image": "",
+                "description": ""
+            },
+            {
+                "id": "3",
+                "courseName": "Foundations of Computer Science",
+                "organization": "The Odin Project",
+                "link": "https://www.theodinproject.com/",
+                "image": "",
+                "description": ""
+            }
+        ],
+        "mathematics": [
+            {
+                "id": "0",
+                "courseName": "Single Variable Calculus",
+                "organization": "MIT OpenCourseWare",
+                "link": "https://ocw.mit.edu/courses/mathematics/18-01sc-single-variable-calculus-fall-2010/",
+                "image": "",
+                "description": ""
+            },
+            {
+                "id": "1",
+                "courseName": "Introduction to Calculus",
+                "organization": "University of Sydney",
+                "link": "https://www.coursera.org/learn/introduction-to-calculus",
+                "image": "",
+                "description": ""
+            },
+            {
+                "id": "2",
+                "courseName": "Algebra Basics",
+                "organization": "Khan Academy",
+                "link": "https://www.khanacademy.org/math/algebra",
+                "image": "",
+                "description": ""
+            },
+            {
+                "id": "3",
+                "courseName": "Mathematics for Machine Learning",
+                "organization": "Coursera",
+                "link": "https://www.coursera.org/specializations/mathematics-machine-learning",
+                "image": "",
+                "description": ""
+            }
+        ],
+        "physics": [
+            {
+                "id": "0",
+                "courseName": "Classical Mechanics",
+                "organization": "MIT OpenCourseWare",
+                "link": "https://ocw.mit.edu/courses/physics/8-01sc-classical-mechanics-fall-2016/",
+                "image": "",
+                "description": ""
+            },
+            {
+                "id": "1",
+                "courseName": "Physics Fundamentals",
+                "organization": "Khan Academy",
+                "link": "https://www.khanacademy.org/science/physics",
+                "image": "",
+                "description": ""
+            },
+            {
+                "id": "2",
+                "courseName": "Introduction to Physics",
+                "organization": "Coursera",
+                "link": "https://www.coursera.org/learn/intro-physics",
+                "image": "",
+                "description": ""
+            },
+            {
+                "id": "3",
+                "courseName": "How Things Work: An Introduction to Physics",
+                "organization": "University of Virginia",
+                "link": "https://www.coursera.org/learn/how-things-work",
+                "image": "",
+                "description": ""
+            }
+        ],
+        "engineering": [
+            {
+                "id": "0",
+                "courseName": "Engineering Mechanics",
+                "organization": "Brown University",
+                "link": "https://www.coursera.org/learn/engineering-mechanics-statics",
+                "image": "",
+                "description": ""
+            },
+            {
+                "id": "1",
+                "courseName": "Aerospace Structures and Materials",
+                "organization": "Delft University of Technology",
+                "link": "https://online-learning.tudelft.nl/courses/introduction-to-aerospace-structures-and-materials/",
+                "image": "",
+                "description": ""
+            },
+            {
+                "id": "2",
+                "courseName": "Engineering Fundamentals",
+                "organization": "Khan Academy",
+                "link": "https://www.khanacademy.org/science/engineering",
+                "image": "",
+                "description": ""
+            },
+            {
+                "id": "3",
+                "courseName": "Introduction to Engineering",
+                "organization": "edX",
+                "link": "https://www.edx.org/learn/engineering",
+                "image": "",
+                "description": ""
+            }
+        ],
+        "biology": [
+            {
+                "id": "0",
+                "courseName": "The Secret of Life",
+                "organization": "MIT OpenCourseWare",
+                "link": "https://ocw.mit.edu/courses/biology/7-00sc-fundamentals-of-biology-fall-2011/",
+                "image": "",
+                "description": ""
+            },
+            {
+                "id": "1",
+                "courseName": "Introduction to Genetics and Evolution",
+                "organization": "Duke University",
+                "link": "https://www.coursera.org/learn/genetics-evolution",
+                "image": "",
+                "description": ""
+            },
+            {
+                "id": "2",
+                "courseName": "Biology Basics",
+                "organization": "Khan Academy",
+                "link": "https://www.khanacademy.org/science/biology",
+                "image": "",
+                "description": ""
+            },
+            {
+                "id": "3",
+                "courseName": "Biology for Everyone",
+                "organization": "Coursera",
+                "link": "https://www.coursera.org/courses?query=biology",
+                "image": "",
+                "description": ""
+            }
+        ],
+        "chemistry": [
+            {
+                "id": "0",
+                "courseName": "Introduction to Chemistry",
+                "organization": "Khan Academy",
+                "link": "https://www.khanacademy.org/science/chemistry",
+                "image": "",
+                "description": ""
+            },
+            {
+                "id": "1",
+                "courseName": "Principles of Chemical Science",
+                "organization": "MIT OpenCourseWare",
+                "link": "https://ocw.mit.edu/courses/chemistry/5-111-principles-of-chemical-science-fall-2008/",
+                "image": "",
+                "description": ""
+            },
+            {
+                "id": "2",
+                "courseName": "Basic Chemistry",
+                "organization": "edX",
+                "link": "https://www.edx.org/learn/chemistry",
+                "image": "",
+                "description": ""
+            },
+            {
+                "id": "3",
+                "courseName": "Chemistry Essentials",
+                "organization": "Coursera",
+                "link": "https://www.coursera.org/courses?query=chemistry",
+                "image": "",
+                "description": ""
+            }
+        ],
+        "astronomy": [
+            {
+                "id": "0",
+                "courseName": "Astrobiology and the Search for Extraterrestrial Life",
+                "organization": "edX",
+                "link": "https://www.edx.org/course/astrobiology",
+                "image": "",
+                "description": ""
+            },
+            {
+                "id": "1",
+                "courseName": "Astronomy: Exploring Time and Space",
+                "organization": "Coursera",
+                "link": "https://www.coursera.org/learn/astronomy",
+                "image": "",
+                "description": ""
+            },
+            {
+                "id": "2",
+                "courseName": "Introduction to Astronomy",
+                "organization": "MIT OpenCourseWare",
+                "link": "https://ocw.mit.edu/courses/earth-atmospheric-and-planetary-sciences/12-400-the-solar-system-spring-2006/",
+                "image": "",
+                "description": ""
+            },
+            {
+                "id": "3",
+                "courseName": "Astronomy for All",
+                "organization": "University of Arizona",
+                "link": "https://www.coursera.org/learn/astronomy",
+                "image": "",
+                "description": ""
+            }
+        ],
+        "environmentalScience": [
+            {
+                "id": "0",
+                "courseName": "Environmental Science Fundamentals",
+                "organization": "Yale University",
+                "link": "https://oyc.yale.edu/environmental-studies/evst-255",
+                "image": "",
+                "description": ""
+            },
+            {
+                "id": "1",
+                "courseName": "Environmental Science and Sustainability",
+                "organization": "University of Illinois",
+                "link": "https://www.coursera.org/learn/environmental-science-sustainability",
+                "image": "",
+                "description": ""
+            },
+            {
+                "id": "2",
+                "courseName": "Ecology and Environment",
+                "organization": "Coursera",
+                "link": "https://www.coursera.org/courses?query=environmental%20science",
+                "image": "",
+                "description": ""
+            },
+            {
+                "id": "3",
+                "courseName": "Introduction to Environmental Science",
+                "organization": "MIT OpenCourseWare",
+                "link": "https://ocw.mit.edu/courses/earth-atmospheric-and-planetary-sciences/12-009j-theoretical-environmental-science-spring-2007/",
+                "image": "",
+                "description": ""
+            }
+        ]
+    }
+}

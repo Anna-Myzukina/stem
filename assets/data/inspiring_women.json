@@ -1,0 +1,32 @@
+{
+    "women" : [
+        {
+          "name": "Hypatia of Alexandria",
+          "fact": "A Greek Neoplatonist philosopher, astronomer, and mathematician, Hypatia was one of the greatest intellectuals of the Hellenistic world."
+        },
+        {
+          "name": "Ada Lovelace",
+          "fact": "Often considered the world's first computer programmer, Lovelace worked with Charles Babbage on the Analytical Engine, a precursor to modern computers."
+        },
+        {
+          "name": "Marie Curie",
+          "fact": "A pioneering scientist who conducted groundbreaking research on radioactivity. She was the first woman to win a Nobel Prize, and the first person and only woman to win Nobel Prizes in two different scientific fields."
+        },
+        {
+          "name": "Emmy Noether",
+          "fact": "A brilliant mathematician who made significant contributions to abstract algebra and theoretical physics. Her work on abstract algebra is considered foundational to modern algebra."
+        },
+        {
+          "name": "Katherine Johnson",
+          "fact": "A brilliant mathematician whose calculations were critical to the success of NASA's early space missions, including Project Mercury and the Apollo program."
+        },
+        {
+          "name": "Maryam Mirzakhani",
+          "fact": "An Iranian mathematician who made significant contributions to the fields of geometry, dynamical systems, and ergodic theory. She was the first woman to win the Fields Medal, often considered the highest honor in mathematics."
+        },
+        {
+          "name": "Karen Uhlenbeck",
+          "fact": "An American mathematician who made groundbreaking contributions to geometric analysis and gauge theory. She was the first woman to win the Abel Prize, one of the highest honors in mathematics."
+        }
+      ]
+}
