@@ -1,6 +1,7 @@
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:stem/screens/login/center_widget.dart';
 import 'package:stem/widgets/elevated_custom_button_widget.dart';
 import 'package:stem/src/constants.dart' as globals;
@@ -150,13 +151,18 @@ class ContentFirstScreenWidget extends StatelessWidget {
             position: textAnimation,
             child: FadeTransition(
               opacity: fadeAnimation,
-              child: const Text(
+              child: Text(
                 'Bridging\nSTEM Gap',
-                style: TextStyle(
+                style: GoogleFonts.lora(
                   fontSize: 40,
                   fontWeight: FontWeight.w600,
-                  color: globals.textVioletLavanda,
-                ),
+                  color: globals.textVioletLavanda
+                )
+                // TextStyle(
+                //   fontSize: 40,
+                //   fontWeight: FontWeight.w600,
+                //   color: globals.textVioletLavanda,
+                // ),
               ),
             ),
           ),
@@ -175,15 +181,20 @@ class ContentFirstScreenWidget extends StatelessWidget {
                   ),
                 ),
               ),
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 18.0),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 18.0),
                 child: Text(
                   'Empowering Women and Girls in Science, Technology, Engineering, and Mathematics',
                   textAlign: TextAlign.center,
-                  style: TextStyle(
+                  style: GoogleFonts.lora(
                     fontSize: 18,
                     color: globals.textVioletLavanda,
-                  ),
+                    fontWeight: FontWeight.bold
+                  )
+                  // TextStyle(
+                  //   fontSize: 18,
+                  //   color: globals.textVioletLavanda,
+                  // ),
                 ),
               ),
             ],

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:stem/screens/login/change_animation.dart';
 import 'package:stem/screens/login/helper_functions.dart';
 import 'login_content.dart';
@@ -53,10 +54,13 @@ class _BottomTextState extends State<BottomText> {
                           Screens.createAccount
                       ? 'Already have an account? '
                       : 'Don\'t have an account? ',
-                  style: const TextStyle(
+                  style: GoogleFonts.lora(
                     color: globals.textVioletLavanda,
-                    fontWeight: FontWeight.w600,
-                  ),
+                    fontWeight: FontWeight.w600)
+                  // TextStyle(
+                  //   color: globals.textVioletLavanda,
+                  //   fontWeight: FontWeight.w600,
+                  // ),
                 ),
                 TextSpan(
                   text: ChangeScreenAnimation.currentScreen ==

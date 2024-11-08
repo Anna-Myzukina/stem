@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "73130736559",
+    "project_id": "stem-18d55",
+    "storage_bucket": "stem-18d55.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:73130736559:android:9485d0ce4a0e566fdd8d5a",
+        "android_client_info": {
+          "package_name": "com.example.stem"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCCLXEKf6ZUcLgdipSZQ1iaF-pzyhNHr-k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

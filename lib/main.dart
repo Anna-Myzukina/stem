@@ -1,5 +1,7 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:stem/firebase/firebase_options.dart';
 import 'package:stem/screens/animated_test_screen.dart';
 import 'package:stem/screens/astronomy_screen.dart';
 import 'package:stem/screens/biology_screen.dart';
@@ -25,7 +27,14 @@ import 'package:stem/screens/exercise_screen.dart';
 import 'package:stem/screens/quiz_screen.dart';
 import 'package:stem/screens/user_profile_screen.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  try {
+    await Firebase.initializeApp(
+        options: DefaultFirebaseOptions.currentPlatform);
+  } catch (e) {
+    runApp(const MyApp());
+  }
   runApp(const MyApp());
 }
 
@@ -38,47 +47,53 @@ class MyApp extends StatelessWidget {
         defaultTransition: Transition.downToUp,
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-          scaffoldBackgroundColor: const Color(0xFFeddeff),
-          fontFamily: 'Lora'
-        ),
-       initialRoute: "/",
+            scaffoldBackgroundColor: const Color(0xFFeddeff),
+            fontFamily: 'Lora'),
+        initialRoute: "/",
         getPages: [
           GetPage(name: "/login", page: () => LoginScreen()),
           GetPage(name: "/first", page: () => const FirstScreen()),
           GetPage(name: "/home", page: () => const HomeScreen()),
           GetPage(name: "/dashboard", page: () => DashboardScreen()),
           GetPage(name: "/user_profile", page: () => const UserProfileScreen()),
-
           GetPage(name: "/exercise", page: () => const ExersizeScreen()),
-          GetPage(name: "/exercise_details", page: () => const ExersizeScreen()),
+          GetPage(
+              name: "/exercise_details", page: () => const ExersizeScreen()),
           GetPage(name: "/stem_list", page: () => const StemListScreen()),
-          GetPage(name: "/stem_information", page: () => const StemInformationScreen()),
+          GetPage(
+              name: "/stem_information",
+              page: () => const StemInformationScreen()),
           GetPage(name: "/progress", page: () => const ProgressScreen()),
-          GetPage(name: "/computer_science", page: () => const ComputerScienceScreen()),
-          GetPage(name: "/mathematic", page: () => const MathematicScreen()), 
+          GetPage(
+              name: "/computer_science",
+              page: () => const ComputerScienceScreen()),
+          GetPage(name: "/mathematic", page: () => const MathematicScreen()),
           GetPage(name: "/physic", page: () => const PhysicsScreen()),
           GetPage(name: "/engineering", page: () => const EngineeringScreen()),
           GetPage(name: "/biology", page: () => const BiologyScreen()),
           GetPage(name: "/chemistry", page: () => const ChemistryScreen()),
           GetPage(name: "/astronomy", page: () => const AstronomyScreen()),
-          GetPage(name: "/environmental_science", page: () => const EnvironmentalScienceScreen()),
-
+          GetPage(
+              name: "/environmental_science",
+              page: () => const EnvironmentalScienceScreen()),
           GetPage(name: "/calming", page: () => const CalmingScreen()),
-          GetPage(name: "/math_facts", page: () => const MathematicalFactsScreen()),
-          
+          GetPage(
+              name: "/math_facts", page: () => const MathematicalFactsScreen()),
           GetPage(name: "/quiz", page: () => StemQuizScreen()),
           GetPage(name: "/cv_generator", page: () => const CvGeneratorScreen()),
-          GetPage(name: "/cl_generator", page: () => const CoverLaterGeneratorScreen()),
+          GetPage(
+              name: "/cl_generator",
+              page: () => const CoverLaterGeneratorScreen()),
         ],
-      home: //HomeScreen()
-      // DashboardScreen()
-      LoginScreen()
-      //SignUpScreen()
-      // const StemQuizScreen() 
-      //FirstScreen()
-      //LevelUpScreen()
-      //CardListScreen()
-      //AnimatedContainersScreen()
-    );
+        home: //HomeScreen()
+            // DashboardScreen()
+            LoginScreen()
+        //SignUpScreen()
+        // const StemQuizScreen()
+        //FirstScreen()
+        //LevelUpScreen()
+        //CardListScreen()
+        //AnimatedContainersScreen()
+        );
   }
 }

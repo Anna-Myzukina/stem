@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:stem/screens/login/change_animation.dart';
 import 'package:stem/screens/login/helper_functions.dart';
 import 'package:stem/src/constants.dart' as globals;
@@ -33,11 +34,17 @@ class _TopTextState extends State<TopText> {
         ChangeScreenAnimation.currentScreen == Screens.createAccount
             ? 'Create\nAccount'
             : 'Welcome\nBack',
-        style: const TextStyle(
+        style: GoogleFonts.lora(
           fontSize: 40,
           fontWeight: FontWeight.w600,
           color: globals.textVioletLavanda
-        ),
+        )
+        // TextStyle(
+        //   fontSize: 40,
+        //   fontFamily: 'Lora',
+        //   fontWeight: FontWeight.w600,
+        //   color: globals.textVioletLavanda
+        // ),
       ),
     );
   }
