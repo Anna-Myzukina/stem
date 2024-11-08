@@ -1,5 +1,4 @@
 import 'dart:math' as math;
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:stem/screens/login/center_widget.dart';
@@ -13,9 +12,53 @@ class FirstScreen extends StatefulWidget {
   State<FirstScreen> createState() => _FirstScreenState();
 }
 
-class _FirstScreenState extends State<FirstScreen> {
+class _FirstScreenState extends State<FirstScreen> with TickerProviderStateMixin {
+  late final AnimationController _controller;
+  late final Animation<Offset> _textAnimation;
+  late final Animation<Offset> _imageAnimation;
+  late final Animation<double> _fadeAnimation;
 
-   
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      duration: const Duration(seconds: 2),
+      vsync: this,
+    );
+
+    _textAnimation = Tween<Offset>(
+      begin: const Offset(-1, 0), // Slide from left
+      end: Offset.zero,
+    ).animate(CurvedAnimation(
+      parent: _controller,
+      curve: Curves.easeInOut,
+    ));
+
+    _imageAnimation = Tween<Offset>(
+      begin: const Offset(1.0, 0.0), // Slide from bottom
+      end: Offset.zero,
+    ).animate(CurvedAnimation(
+      parent: _controller,
+      curve: Curves.easeInOut,
+    ));
+
+    _fadeAnimation = Tween<double>(
+      begin: 0.0, // Fade in from transparent
+      end: 1.0,
+    ).animate(CurvedAnimation(
+      parent: _controller,
+      curve: Curves.easeInOut,
+    ));
+
+    _controller.forward();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
   Widget topWidget(double screenWidth) {
     return Transform.rotate(
       angle: -35 * math.pi / 180,
@@ -73,75 +116,76 @@ class _FirstScreenState extends State<FirstScreen> {
             child: bottomWidget(screenSize.width),
           ),
           CenterWidget(size: screenSize),
-          const ContentFirstScreenWidget(),
+          ContentFirstScreenWidget(
+            textAnimation: _textAnimation,
+            imageAnimation: _imageAnimation,
+            fadeAnimation: _fadeAnimation,
+          ),
         ],
       ),
     );
   }
 }
 
-
 class ContentFirstScreenWidget extends StatelessWidget {
+  final Animation<Offset> textAnimation;
+  final Animation<Offset> imageAnimation;
+  final Animation<double> fadeAnimation;
+
   const ContentFirstScreenWidget({
     super.key,
+    required this.textAnimation,
+    required this.imageAnimation,
+    required this.fadeAnimation,
   });
 
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        //  SizedBox(
-        //   height: MediaQuery.of(context).size.height * 0.1,
-        // ),
         Positioned(
           top: 136,
           left: 24,
-          child: Text(
-          'Bridging\nSTEM Gap',
-          style: TextStyle(
-            fontSize: 40,
-            fontWeight: FontWeight.w600,
-            color: globals.textVioletLavanda),
+          child: SlideTransition(
+            position: textAnimation,
+            child: FadeTransition(
+              opacity: fadeAnimation,
+              child: const Text(
+                'Bridging\nSTEM Gap',
+                style: TextStyle(
+                  fontSize: 40,
+                  fontWeight: FontWeight.w600,
+                  color: globals.textVioletLavanda,
+                ),
+              ),
+            ),
           ),
         ),
-        
         Padding(
-          padding: EdgeInsets.only(top: 170.0),
+          padding: const EdgeInsets.only(top: 170.0),
           child: Column(
             children: [
-              // Text(
-              //   'Empowering Women and Girls in Science, Technology, Engineering, and Mathematics',
-              //   textAlign: TextAlign.center,
-              //   style: TextStyle(
-              //     fontSize: 18,
-              //     color: globals.textVioletLavanda,
-              //   )
-              // ),
-              Image.asset('assets/images/stem.png',
-                height: MediaQuery.of(context).size.height * 0.45),
-                const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 18.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Empowering Women and Girls in Science, Technology, Engineering, and Mathematics',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 18,
-                          color: globals.textVioletLavanda,
-                        )
-                      ),
-                      // Text(
-                      // 'Our Mission: Equip girls and women with the skills and confidence to excel in STEM fields.',
-                      // style: TextStyle(
-                      //   fontSize: 18,
-                      //   color: globals.textVioletLavanda),
-                      //   textAlign: TextAlign.center,
-                      // ),
-                      ],
-                    ),
+              SlideTransition(
+                position: imageAnimation,
+                child: FadeTransition(
+                  opacity: fadeAnimation,
+                  child: Image.asset(
+                    'assets/images/stem.png',
+                    height: MediaQuery.of(context).size.height * 0.45,
                   ),
+                ),
+              ),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 18.0),
+                child: Text(
+                  'Empowering Women and Girls in Science, Technology, Engineering, and Mathematics',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 18,
+                    color: globals.textVioletLavanda,
+                  ),
+                ),
+              ),
             ],
           ),
         ),
@@ -149,33 +193,21 @@ class ContentFirstScreenWidget extends StatelessWidget {
           alignment: Alignment.bottomCenter,
           child: Padding(
             padding: const EdgeInsets.only(bottom: 50.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                ElevatedCustomButtonWidget(
-                  title: 'Next',
-                  onTap: () {
-                    Get.toNamed('/home');
-                  },
-                ),
-              ],
-            )
-            // NeuButton(
-            //   buttonColor: globals.textVioletLavanda,
-            //   onTap: () {
-            //     Get.toNamed('/home');
-            //   },
-            //   isIcon: false,
-            //   text: const Text(
-            //     'Next',
-            //     style: TextStyle(
-            //       color: globals.lavanda,
-            //       fontWeight: FontWeight.bold,
-            //       fontSize: 18.0
-            //     ),),
-            //   newWidth: 150,
-            // ),
+            child: FadeTransition(
+              opacity: fadeAnimation,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  ElevatedCustomButtonWidget(
+                    title: 'Next',
+                    onTap: () {
+                      Get.toNamed('/home');
+                    },
+                  ),
+                ],
+              ),
+            ),
           ),
         ),
       ],

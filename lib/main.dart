@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:stem/screens/animated_test_screen.dart';
 import 'package:stem/screens/astronomy_screen.dart';
 import 'package:stem/screens/biology_screen.dart';
 import 'package:stem/screens/calming_screen.dart';
@@ -71,13 +72,13 @@ class MyApp extends StatelessWidget {
         ],
       home: //HomeScreen()
       // DashboardScreen()
-      //LoginScreen()
+      LoginScreen()
       //SignUpScreen()
-      // LogInScreen()
       // const StemQuizScreen() 
       //FirstScreen()
-      LevelUpScreen()
+      //LevelUpScreen()
       //CardListScreen()
+      //AnimatedContainersScreen()
     );
   }
 }
