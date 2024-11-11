@@ -41,26 +41,26 @@ class CardColouredWidget extends StatelessWidget {
                 children: [
                   Text(
                     title ?? '',
-                    style: TextStyle(
+                    style: const TextStyle(
                         color: globals.lightLavanda,
                         fontSize: 18,
                         fontWeight: FontWeight.bold),
                   ),
                   Text(
                     text ?? '',
-                    style: TextStyle(
+                    style: const TextStyle(
                         color: globals.lightLavanda,
                         fontWeight: FontWeight.bold),
                   ),
                   Container(
                     decoration: BoxDecoration(
-                        color: btnBgColour ?? Color(0xFF70bdb5),
+                        color: btnBgColour ?? const Color(0xFF70bdb5),
                         borderRadius: BorderRadius.circular(50)),
                     child: Padding(
-                      padding: EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.all(8.0),
                       child: Text(
                         btnTitle ?? '',
-                        style: TextStyle(
+                        style: const TextStyle(
                             color: globals.lightLavanda,
                             fontWeight: FontWeight.bold),
                       ),

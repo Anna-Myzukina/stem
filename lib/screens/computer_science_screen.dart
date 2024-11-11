@@ -1,3 +1,5 @@
+import 'dart:convert';
+import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:stem/src/constants.dart' as globals;
@@ -5,10 +7,31 @@ import 'package:stem/widgets/button_small_icon_widget.dart';
 import 'package:stem/widgets/custom_card_with_shadow.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-final Uri _url = Uri.parse('https://www.youtube.com/@cs50');
-
-class ComputerScienceScreen extends StatelessWidget {
+class ComputerScienceScreen extends StatefulWidget {
   const ComputerScienceScreen({super.key});
+
+  @override
+  State<ComputerScienceScreen> createState() => _ComputerScienceScreenState();
+}
+
+class _ComputerScienceScreenState extends State<ComputerScienceScreen> {
+  List _items = [];
+
+  // Fetch content from the JSON file
+  Future<void> readJson() async {
+    final String response = await rootBundle.loadString('assets/data/stem_cources.json');
+
+    final data = await json.decode(response);
+    setState(() {
+      _items = data["disciplines"]["computerScience"];
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    readJson();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -68,300 +91,379 @@ class ComputerScienceScreen extends StatelessWidget {
                     ],
                   )),
               const SizedBox(height: 20),
-              CustomCardWithShadow(
-                width: MediaQuery.of(context).size.width,
-                widget: InkWell(
-                  onTap: () {},
-                  child: Column(
-                    children: [
-                      const Text(
-                        'Harvard University',
-                        style: TextStyle(
-                            color: globals.textVioletLavanda,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18),
-                      ),
-                      const SizedBox(height: 20),
-                      Stack(
-                        children: [
-                          const Image(
-                              image: AssetImage('assets/images/cs50.jpeg')),
-                          InkWell(
-                            onTap: _launchUrl,
-                            child: const Padding(
-                                padding: EdgeInsets.only(
-                                  top: 50,
+              ListView.builder(
+                  physics: const NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  itemCount: _items.length,
+                  itemBuilder: (context, index) {
+                    final item = _items[index];
+                    return Column(
+                      children: [
+                        CustomCardWithShadow(
+                          width: MediaQuery.of(context).size.width,
+                          widget: InkWell(
+                            onTap: () {},
+                            child: Column(
+                              children: [
+                                Text(
+                                  item['organization'],
+                                  style: const TextStyle(
+                                      color: globals.textVioletLavanda,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 18),
                                 ),
-                                child: Center(
-                                  child: Image(
-                                      height: 50,
-                                      image: AssetImage(
-                                          'assets/images/youtube.png')),
-                                )),
-                          )
-                        ],
-                      ),
-                      const SizedBox(height: 10),
-                      const Text(
-                        'CS50\'s Introduction to Computer Science',
-                        style: TextStyle(color: globals.textVioletLavanda),
-                      ),
-                      const Padding(
-                        padding: EdgeInsets.only(right: 25),
-                        child: Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Text(
-                                'Read More',
-                                style: TextStyle(color: globals.greyLavanda),
-                              ),
-                              SizedBox(width: 8),
-                              Icon(
-                                Icons.arrow_right_alt,
-                                color: Colors.grey,
-                              )
-                            ]),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              const SizedBox(height: 20),
-              CustomCardWithShadow(
-                width: MediaQuery.of(context).size.width,
-                widget: InkWell(
-                  onTap: () {},
-                  child: Column(
-                    children: [
-                      const Text(
-                        'Harvard University',
-                        style: TextStyle(
-                            color: globals.textVioletLavanda,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18),
-                      ),
-                      const SizedBox(height: 20),
-                      Stack(
-                        children: [
-                          const Image(
-                              image: AssetImage('assets/images/cs50.jpeg')),
-                          InkWell(
-                            onTap: _launchUrl,
-                            child: const Padding(
-                                padding: EdgeInsets.only(
-                                  top: 50,
+                                const SizedBox(height: 20),
+                                Stack(
+                                  children: [
+                                    Center(
+                                      child: Image(
+                                          height: 200,
+                                          fit: BoxFit.cover,
+                                          image: AssetImage(
+                                              item['image'])),
+                                    ),
+                                    InkWell(
+                                      onTap: () {
+                                        _launchUrl(item['link']);
+                                      }, // _launchUrl,
+                                      child: const Padding(
+                                          padding: EdgeInsets.only(
+                                            top: 50,
+                                          ),
+                                          child: Center(
+                                            child: Image(
+                                                height: 50,
+                                                image: AssetImage(
+                                                    'assets/images/youtube.png')),
+                                          )),
+                                    )
+                                  ],
                                 ),
-                                child: Center(
-                                  child: Image(
-                                      height: 50,
-                                      image: AssetImage(
-                                          'assets/images/youtube.png')),
-                                )),
-                          )
-                        ],
-                      ),
-                      const SizedBox(height: 10),
-                      const Text(
-                        'CS50\'s Introduction to Computer Science',
-                        style: TextStyle(color: globals.textVioletLavanda),
-                      ),
-                      const Padding(
-                        padding: EdgeInsets.only(right: 25),
-                        child: Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Text(
-                                'Read More',
-                                style: TextStyle(color: globals.greyLavanda),
-                              ),
-                              SizedBox(width: 8),
-                              Icon(
-                                Icons.arrow_right_alt,
-                                color: Colors.grey,
-                              )
-                            ]),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              const SizedBox(height: 20),
-              CustomCardWithShadow(
-                width: MediaQuery.of(context).size.width,
-                widget: InkWell(
-                  onTap: () {},
-                  child: Column(
-                    children: [
-                      const Text(
-                        'Harvard University',
-                        style: TextStyle(
-                            color: globals.textVioletLavanda,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18),
-                      ),
-                      const SizedBox(height: 20),
-                      Stack(
-                        children: [
-                          const Image(
-                              image: AssetImage('assets/images/cs50.jpeg')),
-                          InkWell(
-                            onTap: _launchUrl,
-                            child: const Padding(
-                                padding: EdgeInsets.only(
-                                  top: 50,
+                                const SizedBox(height: 10),
+                                Text(
+                                  item['courseName'],
+                                  style: const TextStyle(
+                                      color: globals.textVioletLavanda),
                                 ),
-                                child: Center(
-                                  child: Image(
-                                      height: 50,
-                                      image: AssetImage(
-                                          'assets/images/youtube.png')),
-                                )),
-                          )
-                        ],
-                      ),
-                      const SizedBox(height: 10),
-                      const Text(
-                        'CS50\'s Introduction to Computer Science',
-                        style: TextStyle(color: globals.textVioletLavanda),
-                      ),
-                      const Padding(
-                        padding: EdgeInsets.only(right: 25),
-                        child: Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Text(
-                                'Read More',
-                                style: TextStyle(color: globals.greyLavanda),
-                              ),
-                              SizedBox(width: 8),
-                              Icon(
-                                Icons.arrow_right_alt,
-                                color: Colors.grey,
-                              )
-                            ]),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              const SizedBox(height: 20),
-              CustomCardWithShadow(
-                width: MediaQuery.of(context).size.width,
-                widget: InkWell(
-                  onTap: () {},
-                  child: Column(
-                    children: [
-                      const Text(
-                        'Harvard University',
-                        style: TextStyle(
-                            color: globals.textVioletLavanda,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18),
-                      ),
-                      const SizedBox(height: 20),
-                      Stack(
-                        children: [
-                          const Image(
-                              image: AssetImage('assets/images/cs50.jpeg')),
-                          InkWell(
-                            onTap: _launchUrl,
-                            child: const Padding(
-                                padding: EdgeInsets.only(
-                                  top: 50,
+                                const Padding(
+                                  padding: EdgeInsets.only(right: 25),
+                                  child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.end,
+                                      children: [
+                                        Text(
+                                          'Read More',
+                                          style: TextStyle(
+                                              color: globals.greyLavanda),
+                                        ),
+                                        SizedBox(width: 8),
+                                        Icon(
+                                          Icons.arrow_right_alt,
+                                          color: Colors.grey,
+                                        )
+                                      ]),
                                 ),
-                                child: Center(
-                                  child: Image(
-                                      height: 50,
-                                      image: AssetImage(
-                                          'assets/images/youtube.png')),
-                                )),
-                          )
-                        ],
-                      ),
-                      const SizedBox(height: 10),
-                      const Text(
-                        'CS50\'s Introduction to Computer Science',
-                        style: TextStyle(color: globals.textVioletLavanda),
-                      ),
-                      const Padding(
-                        padding: EdgeInsets.only(right: 25),
-                        child: Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Text(
-                                'Read More',
-                                style: TextStyle(color: globals.greyLavanda),
-                              ),
-                              SizedBox(width: 8),
-                              Icon(
-                                Icons.arrow_right_alt,
-                                color: Colors.grey,
-                              )
-                            ]),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              const SizedBox(height: 20),
-              CustomCardWithShadow(
-                width: MediaQuery.of(context).size.width,
-                widget: InkWell(
-                  onTap: () {},
-                  child: Column(
-                    children: [
-                      const Text(
-                        'Harvard University',
-                        style: TextStyle(
-                            color: globals.textVioletLavanda,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18),
-                      ),
-                      const SizedBox(height: 20),
-                      Stack(
-                        children: [
-                          const Image(
-                              image: AssetImage('assets/images/cs50.jpeg')),
-                          InkWell(
-                            onTap: _launchUrl,
-                            child: const Padding(
-                                padding: EdgeInsets.only(
-                                  top: 50,
-                                ),
-                                child: Center(
-                                  child: Image(
-                                      height: 50,
-                                      image: AssetImage(
-                                          'assets/images/youtube.png')),
-                                )),
-                          )
-                        ],
-                      ),
-                      const SizedBox(height: 10),
-                      const Text(
-                        'CS50\'s Introduction to Computer Science',
-                        style: TextStyle(color: globals.textVioletLavanda),
-                      ),
-                      const Padding(
-                        padding: EdgeInsets.only(right: 25),
-                        child: Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Text(
-                                'Read More',
-                                style: TextStyle(color: globals.greyLavanda),
-                              ),
-                              SizedBox(width: 8),
-                              Icon(
-                                Icons.arrow_right_alt,
-                                color: Colors.grey,
-                              )
-                            ]),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 20),
+                      ],
+                    );
+                  })
+              // CustomCardWithShadow(
+              //   width: MediaQuery.of(context).size.width,
+              //   widget: InkWell(
+              //     onTap: () {},
+              //     child: Column(
+              //       children: [
+              //         const Text(
+              //           'Harvard University',
+              //           style: TextStyle(
+              //               color: globals.textVioletLavanda,
+              //               fontWeight: FontWeight.bold,
+              //               fontSize: 18),
+              //         ),
+              //         const SizedBox(height: 20),
+              //         Stack(
+              //           children: [
+              //             const Image(
+              //                 image: AssetImage('assets/images/cs50.jpeg')),
+              //             InkWell(
+              //               onTap: _launchUrl,
+              //               child: const Padding(
+              //                   padding: EdgeInsets.only(
+              //                     top: 50,
+              //                   ),
+              //                   child: Center(
+              //                     child: Image(
+              //                         height: 50,
+              //                         image: AssetImage(
+              //                             'assets/images/youtube.png')),
+              //                   )),
+              //             )
+              //           ],
+              //         ),
+              //         const SizedBox(height: 10),
+              //         const Text(
+              //           'CS50\'s Introduction to Computer Science',
+              //           style: TextStyle(color: globals.textVioletLavanda),
+              //         ),
+              //         const Padding(
+              //           padding: EdgeInsets.only(right: 25),
+              //           child: Row(
+              //               mainAxisAlignment: MainAxisAlignment.end,
+              //               children: [
+              //                 Text(
+              //                   'Read More',
+              //                   style: TextStyle(color: globals.greyLavanda),
+              //                 ),
+              //                 SizedBox(width: 8),
+              //                 Icon(
+              //                   Icons.arrow_right_alt,
+              //                   color: Colors.grey,
+              //                 )
+              //               ]),
+              //         ),
+              //       ],
+              //     ),
+              //   ),
+              // ),
+              // const SizedBox(height: 20),
+              // CustomCardWithShadow(
+              //   width: MediaQuery.of(context).size.width,
+              //   widget: InkWell(
+              //     onTap: () {},
+              //     child: Column(
+              //       children: [
+              //         const Text(
+              //           'Harvard University',
+              //           style: TextStyle(
+              //               color: globals.textVioletLavanda,
+              //               fontWeight: FontWeight.bold,
+              //               fontSize: 18),
+              //         ),
+              //         const SizedBox(height: 20),
+              //         Stack(
+              //           children: [
+              //             const Image(
+              //                 image: AssetImage('assets/images/cs50.jpeg')),
+              //             InkWell(
+              //               onTap: _launchUrl,
+              //               child: const Padding(
+              //                   padding: EdgeInsets.only(
+              //                     top: 50,
+              //                   ),
+              //                   child: Center(
+              //                     child: Image(
+              //                         height: 50,
+              //                         image: AssetImage(
+              //                             'assets/images/youtube.png')),
+              //                   )),
+              //             )
+              //           ],
+              //         ),
+              //         const SizedBox(height: 10),
+              //         const Text(
+              //           'CS50\'s Introduction to Computer Science',
+              //           style: TextStyle(color: globals.textVioletLavanda),
+              //         ),
+              //         const Padding(
+              //           padding: EdgeInsets.only(right: 25),
+              //           child: Row(
+              //               mainAxisAlignment: MainAxisAlignment.end,
+              //               children: [
+              //                 Text(
+              //                   'Read More',
+              //                   style: TextStyle(color: globals.greyLavanda),
+              //                 ),
+              //                 SizedBox(width: 8),
+              //                 Icon(
+              //                   Icons.arrow_right_alt,
+              //                   color: Colors.grey,
+              //                 )
+              //               ]),
+              //         ),
+              //       ],
+              //     ),
+              //   ),
+              // ),
+              // const SizedBox(height: 20),
+              // CustomCardWithShadow(
+              //   width: MediaQuery.of(context).size.width,
+              //   widget: InkWell(
+              //     onTap: () {},
+              //     child: Column(
+              //       children: [
+              //         const Text(
+              //           'Harvard University',
+              //           style: TextStyle(
+              //               color: globals.textVioletLavanda,
+              //               fontWeight: FontWeight.bold,
+              //               fontSize: 18),
+              //         ),
+              //         const SizedBox(height: 20),
+              //         Stack(
+              //           children: [
+              //             const Image(
+              //                 image: AssetImage('assets/images/cs50.jpeg')),
+              //             InkWell(
+              //               onTap: _launchUrl,
+              //               child: const Padding(
+              //                   padding: EdgeInsets.only(
+              //                     top: 50,
+              //                   ),
+              //                   child: Center(
+              //                     child: Image(
+              //                         height: 50,
+              //                         image: AssetImage(
+              //                             'assets/images/youtube.png')),
+              //                   )),
+              //             )
+              //           ],
+              //         ),
+              //         const SizedBox(height: 10),
+              //         const Text(
+              //           'CS50\'s Introduction to Computer Science',
+              //           style: TextStyle(color: globals.textVioletLavanda),
+              //         ),
+              //         const Padding(
+              //           padding: EdgeInsets.only(right: 25),
+              //           child: Row(
+              //               mainAxisAlignment: MainAxisAlignment.end,
+              //               children: [
+              //                 Text(
+              //                   'Read More',
+              //                   style: TextStyle(color: globals.greyLavanda),
+              //                 ),
+              //                 SizedBox(width: 8),
+              //                 Icon(
+              //                   Icons.arrow_right_alt,
+              //                   color: Colors.grey,
+              //                 )
+              //               ]),
+              //         ),
+              //       ],
+              //     ),
+              //   ),
+              // ),
+              // const SizedBox(height: 20),
+              // CustomCardWithShadow(
+              //   width: MediaQuery.of(context).size.width,
+              //   widget: InkWell(
+              //     onTap: () {},
+              //     child: Column(
+              //       children: [
+              //         const Text(
+              //           'Harvard University',
+              //           style: TextStyle(
+              //               color: globals.textVioletLavanda,
+              //               fontWeight: FontWeight.bold,
+              //               fontSize: 18),
+              //         ),
+              //         const SizedBox(height: 20),
+              //         Stack(
+              //           children: [
+              //             const Image(
+              //                 image: AssetImage('assets/images/cs50.jpeg')),
+              //             InkWell(
+              //               onTap: _launchUrl,
+              //               child: const Padding(
+              //                   padding: EdgeInsets.only(
+              //                     top: 50,
+              //                   ),
+              //                   child: Center(
+              //                     child: Image(
+              //                         height: 50,
+              //                         image: AssetImage(
+              //                             'assets/images/youtube.png')),
+              //                   )),
+              //             )
+              //           ],
+              //         ),
+              //         const SizedBox(height: 10),
+              //         const Text(
+              //           'CS50\'s Introduction to Computer Science',
+              //           style: TextStyle(color: globals.textVioletLavanda),
+              //         ),
+              //         const Padding(
+              //           padding: EdgeInsets.only(right: 25),
+              //           child: Row(
+              //               mainAxisAlignment: MainAxisAlignment.end,
+              //               children: [
+              //                 Text(
+              //                   'Read More',
+              //                   style: TextStyle(color: globals.greyLavanda),
+              //                 ),
+              //                 SizedBox(width: 8),
+              //                 Icon(
+              //                   Icons.arrow_right_alt,
+              //                   color: Colors.grey,
+              //                 )
+              //               ]),
+              //         ),
+              //       ],
+              //     ),
+              //   ),
+              // ),
+              // const SizedBox(height: 20),
+              // CustomCardWithShadow(
+              //   width: MediaQuery.of(context).size.width,
+              //   widget: InkWell(
+              //     onTap: () {},
+              //     child: Column(
+              //       children: [
+              //         const Text(
+              //           'Harvard University',
+              //           style: TextStyle(
+              //               color: globals.textVioletLavanda,
+              //               fontWeight: FontWeight.bold,
+              //               fontSize: 18),
+              //         ),
+              //         const SizedBox(height: 20),
+              //         Stack(
+              //           children: [
+              //             const Image(
+              //                 image: AssetImage('assets/images/cs50.jpeg')),
+              //             InkWell(
+              //               onTap: _launchUrl,
+              //               child: const Padding(
+              //                   padding: EdgeInsets.only(
+              //                     top: 50,
+              //                   ),
+              //                   child: Center(
+              //                     child: Image(
+              //                         height: 50,
+              //                         image: AssetImage(
+              //                             'assets/images/youtube.png')),
+              //                   )),
+              //             )
+              //           ],
+              //         ),
+              //         const SizedBox(height: 10),
+              //         const Text(
+              //           'CS50\'s Introduction to Computer Science',
+              //           style: TextStyle(color: globals.textVioletLavanda),
+              //         ),
+              //         const Padding(
+              //           padding: EdgeInsets.only(right: 25),
+              //           child: Row(
+              //               mainAxisAlignment: MainAxisAlignment.end,
+              //               children: [
+              //                 Text(
+              //                   'Read More',
+              //                   style: TextStyle(color: globals.greyLavanda),
+              //                 ),
+              //                 SizedBox(width: 8),
+              //                 Icon(
+              //                   Icons.arrow_right_alt,
+              //                   color: Colors.grey,
+              //                 )
+              //               ]),
+              //         ),
+              //       ],
+              //     ),
+              //   ),
+              // ),
             ],
           ),
         ),
@@ -369,10 +471,18 @@ class ComputerScienceScreen extends StatelessWidget {
     );
   }
 
-  Future<void> _launchUrl() async {
-    if (!await launchUrl(_url)) {
-      throw Exception('Could not launch $_url');
+  // Future<void> _launchUrl() async {
+  //   if (!await launchUrl(_url)) {
+  //     throw Exception('Could not launch $_url');
+  //   }
+  // }
+
+    Future<void> _launchUrl(String link) async {
+    final Uri url = Uri.parse(link);
+    if (!await launchUrl(url)) {
+      throw Exception('Could not launch $url');
+
     }
   }
-}
 
+}

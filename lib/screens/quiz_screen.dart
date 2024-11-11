@@ -16,7 +16,7 @@ class StemQuizScreen extends StatefulWidget {
 class _StemQuizScreenState extends State<StemQuizScreen> {
   bool isHover = false;
   List<dynamic> _quizData = [];
-  List<String> _selectedInterests = [];
+  final List<String> _selectedInterests = [];
   int _currentQuestionIndex = 0;
   bool _showResultButton = false;
   late double _progressValue;
@@ -136,13 +136,13 @@ class _StemQuizScreenState extends State<StemQuizScreen> {
             CustomCardWithShadow(
               aroundPadding: 10.0,
               width: MediaQuery.of(context).size.width,
-              widget: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              widget: const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16.0),
                 child: Row(
                   children: [
                     Expanded(
                       flex: 3,
-                      child: const Text(
+                      child: Text(
                         'Answer these 21 quick questions to discover subject that might be a good fit for you.',
                         textAlign: TextAlign.left,
                         style: TextStyle(
@@ -169,7 +169,7 @@ class _StemQuizScreenState extends State<StemQuizScreen> {
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: Text(currentQuestion['text'], 
               textAlign: TextAlign.center,
-              style: TextStyle(
+              style: const TextStyle(
                 color: globals.textVioletLavanda,
                 fontSize: 18,
                 fontFamily: 'Lora',
@@ -192,7 +192,7 @@ class _StemQuizScreenState extends State<StemQuizScreen> {
                             AspectRatio(
                               aspectRatio: 1.0,
                               child: AnimatedContainer(
-                                duration: Duration(microseconds: 500),
+                                duration: const Duration(microseconds: 500),
                                 curve: Curves.bounceIn,
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(10),
@@ -213,7 +213,7 @@ class _StemQuizScreenState extends State<StemQuizScreen> {
                                     decoration: BoxDecoration(
                                         color: isHover
                                             ? const Color.fromARGB(83, 40, 10, 75)
-                                            : Color(0xFFf4ecff),
+                                            : const Color(0xFFf4ecff),
                                         borderRadius:
                                             BorderRadius.circular(10),
                                         border: Border.all(
@@ -254,7 +254,7 @@ class _StemQuizScreenState extends State<StemQuizScreen> {
                                           child: Text(
                                             option['text'],
                                             textAlign: TextAlign.center,
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                                 color: globals.textVioletLavanda,
                                                 fontSize: 18,
                                                 fontFamily: 'Lora'
@@ -293,10 +293,10 @@ class _StemQuizScreenState extends State<StemQuizScreen> {
                       context: context,
                       builder: (BuildContext context) {
                         return AlertDialog(
-                          title: Text(
+                          title: const Text(
                             //TODO: prompt from Gemini
                             'Science is a great fit for you! '),
-                          content: Text(
+                          content: const Text(
                             //TODO: prompt from Gemini
                             'You clearly enjoy exploring the natural world and working with your hands, and your interest in helping sick people could lead to a rewarding career in healthcare.'
                            // _generatePrompt()
@@ -307,7 +307,7 @@ class _StemQuizScreenState extends State<StemQuizScreen> {
                                   Get.toNamed('/home');
                                   // TODO: Implement navigation to next screen
                                 },
-                                child: Text("Next", 
+                                child: const Text("Next", 
                                   style: TextStyle(
                                     fontSize: 18,
                                     fontFamily: 'Lora'
@@ -323,7 +323,7 @@ class _StemQuizScreenState extends State<StemQuizScreen> {
                   isIcon: false,
                   text: Text(
                     _showResultButton == true ? 'Show Result' : 'Back',
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: globals.lavanda,
                       fontWeight: FontWeight.bold,
                       fontSize: 18.0

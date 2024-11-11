@@ -86,9 +86,9 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
         backgroundImage: const AssetImage("assets/images/avatar.jpg"),
       );
 
-  Widget buildStemRow() => SingleChildScrollView(
+  Widget buildStemRow() => const SingleChildScrollView(
     child: Padding(
-      padding: const EdgeInsets.only(top: 10.0),
+      padding: EdgeInsets.only(top: 10.0),
       child: StemRowWidget(),
     ),
   );

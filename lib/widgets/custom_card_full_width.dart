@@ -171,7 +171,7 @@ class CustomCardModuleFullWidth extends StatelessWidget {
                                   Text(
                                     list1 ?? '',
                                     overflow: TextOverflow.ellipsis,
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                       fontFamily: 'Lora',
                                       color: globals.textVioletLavanda,
                                     ),
@@ -233,7 +233,7 @@ class CustomCardModuleFullWidth extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Padding(
-                      padding: EdgeInsets.only(right: 25, top: 8.0),
+                      padding: const EdgeInsets.only(right: 25, top: 8.0),
                       child: ButtonSmallIconWidget(
                         icon: FontAwesomeIcons.chevronRight,
                          onTap: () {

@@ -47,7 +47,7 @@ class _MathematicalFactsWidgetState extends State<MathematicalFactsWidget> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-         Row(
+         const Row(
           children: [
             SizedBox(width: 8),
             Icon(
@@ -74,7 +74,7 @@ class _MathematicalFactsWidgetState extends State<MathematicalFactsWidget> {
                             :  Text(
                   //'The Golden Ratio',
                   _items[indexrandom]["title"],
-                  style: TextStyle(
+                  style: const TextStyle(
                       color: globals.textVioletLavanda,
                       fontWeight: FontWeight.bold,
                       fontSize: 18),
@@ -84,7 +84,7 @@ class _MathematicalFactsWidgetState extends State<MathematicalFactsWidget> {
                 ),
                 Row(
                   children: [
-                    Expanded(
+                    const Expanded(
                       flex: 1,
                       child: Image(
                           image: AssetImage('assets/images/mona_liza.png')),
@@ -92,14 +92,14 @@ class _MathematicalFactsWidgetState extends State<MathematicalFactsWidget> {
                     Expanded(
                       flex: 2,
                       child: Padding(
-                        padding: EdgeInsets.only(left: 10.0),
+                        padding: const EdgeInsets.only(left: 10.0),
                         child: 
                          _items.isEmpty
                             ? const Text('Loading...')
                             :  Text(
                            _items[indexrandom]["fact"],
                           //'The Golden Ratio, a mathematical ratio found in nature and art, can be seen in the proportions of the human body, the Parthenon, and the Mona Lisa.',
-                          style: TextStyle(color: globals.textVioletLavanda),
+                          style: const TextStyle(color: globals.textVioletLavanda),
                         ),
                       ),
                     ),

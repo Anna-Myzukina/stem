@@ -32,7 +32,7 @@ class ButtonSmallIconWidget extends StatelessWidget {
           height: 50,
           decoration: BoxDecoration(
             color: buttonColor ?? const Color.fromARGB(132, 247, 240, 255),
-            borderRadius: BorderRadius.all(Radius.circular(10)),
+            borderRadius: const BorderRadius.all(Radius.circular(10)),
           ),
           child: Center(
               child: Icon(

@@ -55,8 +55,8 @@ class _LevelUpScreenState extends State<LevelUpScreen>
                             bottomLeft: Radius.circular(40),
                             bottomRight: Radius.circular(40)),
                       ),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
+                      child: const Padding(
+                        padding: EdgeInsets.symmetric(
                             horizontal: 16.0, vertical: 10),
                         child: AppBarRow(
                           title: 'Level Up With AI Coacher',
@@ -79,7 +79,7 @@ class _LevelUpScreenState extends State<LevelUpScreen>
                     const SizedBox(
                       height: 20,
                     ),
-                    Row(
+                    const Row(
                       children: [
                         CardColouredWidget(
                           link: '/cv_generator',
@@ -87,13 +87,13 @@ class _LevelUpScreenState extends State<LevelUpScreen>
                           text: 'Generate effective Resume',
                           btnTitle: 'Generate CV',
                         ),
-                        const SizedBox(width: 10),
+                        SizedBox(width: 10),
                         CardColouredWidget(
                           link: 'cl_generator',
                           title: 'CL Generator',
                           text: 'Generate effective Cover Letter',
                           bgColour: globals.lavandaCard,
-                          btnBgColour: const Color(0xFF8779d1),
+                          btnBgColour: Color(0xFF8779d1),
                           btnTitle: 'Generate CL',
                         ),
                       ],
@@ -110,7 +110,7 @@ class _LevelUpScreenState extends State<LevelUpScreen>
                     ),
                     CustomCardWithShadow(
                       width: MediaQuery.of(context).size.width,
-                      widget: Column(
+                      widget: const Column(
                         children: [
                           Text(''),
                           Text(
@@ -134,17 +134,17 @@ class _LevelUpScreenState extends State<LevelUpScreen>
                     const SizedBox(
                       height: 20,
                     ),
-                    Row(
+                    const Row(
                       children: [
                         CardColouredWidget(
                           link: 'cl_generator',
                           title: 'Mock interview',
                           text: 'Get mock interview practice with AI.',
                           bgColour: globals.lavandaCard,
-                          btnBgColour: const Color(0xFF8779d1),
+                          btnBgColour: Color(0xFF8779d1),
                           btnTitle: 'Start',
                         ),
-                         const SizedBox(width: 10),
+                         SizedBox(width: 10),
                          CardColouredWidget(
                           link: '/cv_generator',
                           title: 'Job Search',
@@ -165,7 +165,7 @@ class _LevelUpScreenState extends State<LevelUpScreen>
                     ),
                     CustomCardWithShadow(
                       width: MediaQuery.of(context).size.width,
-                      widget: Column(
+                      widget: const Column(
                         children: [
                           Text(''),
                           Text(
@@ -191,7 +191,7 @@ class _LevelUpScreenState extends State<LevelUpScreen>
                     ),
                     CustomCardWithShadow(
                       width: MediaQuery.of(context).size.width,
-                      widget: Column(
+                      widget: const Column(
                         children: [
                           Text(''),
                           Text(
@@ -217,7 +217,7 @@ class _LevelUpScreenState extends State<LevelUpScreen>
                     ),
                     CustomCardWithShadow(
                       width: MediaQuery.of(context).size.width,
-                      widget: Column(
+                      widget: const Column(
                         children: [
                           Text(''),
                           Text(

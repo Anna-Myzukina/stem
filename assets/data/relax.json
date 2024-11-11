@@ -1,0 +1,29 @@
+{
+    "relax": [
+        {
+            "title": "Gentle Healing Music",
+            "image": "assets/images/relac_bath.jpg",
+            "link": "https://www.youtube.com/watch?v=ykUpQFB5NdM"
+        },
+        {
+            "title": "Deep Healing Relaxing Music",
+            "image": "assets/images/relax_lavanda.jpg",
+            "link": "https://www.youtube.com/watch?v=DRFHklnN-SM"
+        },
+        {
+            "title": "PEACE - Soaking worship instrumental",
+            "image": "assets/images/relas_smog.jpg",
+            "link": "https://www.youtube.com/watch?v=yhFccHgf_FQ"
+        },
+        {
+            "title": "Relaxing music Relieves stress",
+            "image": "assets/images/relax_stone.jpg",
+            "link": "https://www.youtube.com/watch?v=I3OJUwILelU"
+        },
+        {
+            "title": "Relaxing Music for Stress Relief",
+            "image": "assets/images/relax_fog.jpg",
+            "link": "https://www.youtube.com/watch?v=xRcWlA1I9z0"
+        }
+    ]
+}

@@ -73,7 +73,7 @@ class CustomCardWithShadow extends StatelessWidget {
                     padding: EdgeInsets.all(aroundPadding),
                     child: widget ?? const Text('widget'),
                   ),
-                  SizedBox(height: 8),
+                  const SizedBox(height: 8),
                   Text(text ?? '')
                 ],
               ),

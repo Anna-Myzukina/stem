@@ -208,9 +208,11 @@ class _CardListScreenState extends State<CardListScreen> with TickerProviderStat
                   ]),
                 ),
               ),
-              
+
             ],
           ),
-        ));
+        ),
+      
+    );
   }
 }

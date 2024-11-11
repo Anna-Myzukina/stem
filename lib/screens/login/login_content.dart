@@ -58,7 +58,7 @@ class _LoginContentState extends State<LoginContent>
       padding: const EdgeInsets.symmetric(horizontal: 135, vertical: 16),
       child: ElevatedButton(
         onPressed: () {
-          Get.toNamed('/first');
+          Get.toNamed('/home');
         },
         style: ElevatedButton.styleFrom(
           padding: const EdgeInsets.symmetric(vertical: 14),
@@ -190,36 +190,31 @@ class _LoginContentState extends State<LoginContent>
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Positioned(
-          top: 136,
-          left: 24,
+        const Padding(
+          padding: EdgeInsets.only(top: 40.0, left: 40),
           child: TopText(),
         ),
-        Padding(
-          padding: const EdgeInsets.only(top: 100),
-          child: Stack(
-            children: [
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: createAccountContent,
-              ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: loginContent,
-              ),
-            ],
-          ),
+        Stack(
+          children: [
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: createAccountContent,
+            ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: loginContent,
+            ),
+          ],
         ),
-        const Align(
-          alignment: Alignment.bottomCenter,
-          child: Padding(
-            padding: EdgeInsets.only(bottom: 50),
-            child: BottomText(),
-          ),
+        const Padding(
+          padding: EdgeInsets.only(bottom: 50),
+          child: BottomText(),
         ),
       ],
     );

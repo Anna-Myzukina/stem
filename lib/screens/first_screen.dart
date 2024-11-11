@@ -2,8 +2,10 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:stem/screens/hexagon/hexagon_clip.dart';
 import 'package:stem/screens/login/center_widget.dart';
 import 'package:stem/widgets/elevated_custom_button_widget.dart';
+
 import 'package:stem/src/constants.dart' as globals;
 
 class FirstScreen extends StatefulWidget {
@@ -142,83 +144,162 @@ class ContentFirstScreenWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Positioned(
-          top: 136,
-          left: 24,
-          child: SlideTransition(
-            position: textAnimation,
-            child: FadeTransition(
-              opacity: fadeAnimation,
-              child: Text(
-                'Bridging\nSTEM Gap',
-                style: GoogleFonts.lora(
-                  fontSize: 40,
-                  fontWeight: FontWeight.w600,
-                  color: globals.textVioletLavanda
-                )
-                // TextStyle(
-                //   fontSize: 40,
-                //   fontWeight: FontWeight.w600,
-                //   color: globals.textVioletLavanda,
-                // ),
-              ),
-            ),
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.only(top: 170.0),
-          child: Column(
-            children: [
-              SlideTransition(
-                position: imageAnimation,
-                child: FadeTransition(
-                  opacity: fadeAnimation,
-                  child: Image.asset(
-                    'assets/images/stem.png',
-                    height: MediaQuery.of(context).size.height * 0.45,
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 18.0),
-                child: Text(
-                  'Empowering Women and Girls in Science, Technology, Engineering, and Mathematics',
-                  textAlign: TextAlign.center,
-                  style: GoogleFonts.lora(
-                    fontSize: 18,
-                    color: globals.textVioletLavanda,
-                    fontWeight: FontWeight.bold
-                  )
-                  // TextStyle(
-                  //   fontSize: 18,
-                  //   color: globals.textVioletLavanda,
-                  // ),
-                ),
-              ),
-            ],
-          ),
-        ),
-        Align(
-          alignment: Alignment.bottomCenter,
-          child: Padding(
-            padding: const EdgeInsets.only(bottom: 50.0),
-            child: FadeTransition(
-              opacity: fadeAnimation,
+        SlideTransition(
+          position: textAnimation,
+          child: FadeTransition(
+            opacity: fadeAnimation,
+            child: Padding(
+              padding: const EdgeInsets.only(top: 20.0, left: 40),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                crossAxisAlignment: CrossAxisAlignment.stretch,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  ElevatedCustomButtonWidget(
-                    title: 'Next',
-                    onTap: () {
-                      Get.toNamed('/home');
-                    },
+                  Text('Space',
+                  style: GoogleFonts.lora(
+                      fontSize: 40,
+                      fontWeight: FontWeight.w600,
+                      color: globals.lavandaCard
+                    )
+                  ),
+                  Text(
+                    'For women\nIn STEM',
+                    style: GoogleFonts.lora(
+                      fontSize: 40,
+                      fontWeight: FontWeight.w600,
+                      color: globals.textVioletLavanda
+                    )
                   ),
                 ],
               ),
             ),
+          ),
+        ),
+        SlideTransition(
+          position: imageAnimation,
+          child: FadeTransition(
+            opacity: fadeAnimation,
+            child: Row(
+              children: [
+                SizedBox(
+                  height: 100,
+                  child: Stack(
+                    children: [
+                      ClipHexagon(
+                        sides: 6,
+                        boxShadows: [
+                          HexagonBoxShadow(color: const Color.fromARGB(65, 76, 175, 79), elevation: 2)
+                        ],
+                        child: Container(
+                          color: const Color.fromARGB(68, 76, 175, 79),
+                          child: const Image(
+                            //height: 60,
+                            fit: BoxFit.fill,
+                            image: AssetImage('assets/images/s.png')),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 100,
+                  child: Stack(
+                    children: [
+                      ClipHexagon(
+                        sides: 6,
+                        boxShadows: [
+                          HexagonBoxShadow(color: Colors.green, elevation: 2)
+                        ],
+                        child: Container(
+                          color: const Color.fromARGB(90, 33, 149, 243),
+                          child: const Image(
+                            //height: 60,
+                            fit: BoxFit.fill,
+                            image: AssetImage('assets/images/t.png')),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 100,
+                  child: Stack(
+                    children: [
+                      ClipHexagon(
+                        sides: 6,
+                        boxShadows: [
+                          HexagonBoxShadow(color: globals.textVioletLavanda, elevation: 2)
+                        ],
+                        child: Container(
+                          color: const Color.fromARGB(107, 181, 126, 220),
+                          child: const Image(
+                            //height: 60,
+                            fit: BoxFit.fill,
+                            image: AssetImage('assets/images/e.png')),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 100,
+                  child: Stack(
+                    children: [
+                      ClipHexagon(
+                        sides: 6,
+                        boxShadows: [
+                          HexagonBoxShadow(color: globals.textVioletLavanda, elevation: 2)
+                        ],
+                        child: Container(
+                          color: const Color.fromARGB(63, 244, 67, 54),
+                          child: const Image(
+                            //height: 60,
+                            fit: BoxFit.fill,
+                            image: AssetImage('assets/images/m.png')),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            )
+            //Image.asset(
+              //'assets/images/stem.png',
+              //height: MediaQuery.of(context).size.height * 0.25,
+            //),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 18.0),
+          child: Text(
+            'Empowering Women and Girls in Science, Technology, Engineering, and Mathematics',
+            textAlign: TextAlign.center,
+            style: GoogleFonts.lora(
+              fontSize: 18,
+              color: globals.textVioletLavanda,
+              fontWeight: FontWeight.bold
+            )
+            // TextStyle(
+            //   fontSize: 18,
+            //   color: globals.textVioletLavanda,
+            // ),
+          ),
+        ),
+        FadeTransition(
+          opacity: fadeAnimation,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              ElevatedCustomButtonWidget(
+                title: 'Register',
+                onTap: () {
+                  Get.toNamed('/login');
+                },
+              ),
+            ],
           ),
         ),
       ],

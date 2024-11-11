@@ -1,11 +1,9 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:stem/firebase/firebase_options.dart';
-import 'package:stem/screens/animated_test_screen.dart';
 import 'package:stem/screens/astronomy_screen.dart';
 import 'package:stem/screens/biology_screen.dart';
 import 'package:stem/screens/calming_screen.dart';
+import 'package:stem/screens/chats_screen.dart';
 import 'package:stem/screens/chemistry_screen.dart';
 import 'package:stem/screens/cl_generator_screen.dart';
 import 'package:stem/screens/computer_science_screen.dart';
@@ -15,7 +13,6 @@ import 'package:stem/screens/engineering_screen.dart';
 import 'package:stem/screens/environmental_science_screen.dart';
 import 'package:stem/screens/first_screen.dart';
 import 'package:stem/screens/home_sreen.dart';
-import 'package:stem/screens/levelup_screen.dart';
 import 'package:stem/screens/login/login_screen.dart';
 import 'package:stem/screens/mathematic_screen.dart';
 import 'package:stem/screens/mathematical_facts_screen.dart';
@@ -28,13 +25,6 @@ import 'package:stem/screens/quiz_screen.dart';
 import 'package:stem/screens/user_profile_screen.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  try {
-    await Firebase.initializeApp(
-        options: DefaultFirebaseOptions.currentPlatform);
-  } catch (e) {
-    runApp(const MyApp());
-  }
   runApp(const MyApp());
 }
 
@@ -51,10 +41,10 @@ class MyApp extends StatelessWidget {
             fontFamily: 'Lora'),
         initialRoute: "/",
         getPages: [
-          GetPage(name: "/login", page: () => LoginScreen()),
+          GetPage(name: "/login", page: () => const LoginScreen()),
           GetPage(name: "/first", page: () => const FirstScreen()),
           GetPage(name: "/home", page: () => const HomeScreen()),
-          GetPage(name: "/dashboard", page: () => DashboardScreen()),
+          GetPage(name: "/dashboard", page: () => const DashboardScreen()),
           GetPage(name: "/user_profile", page: () => const UserProfileScreen()),
           GetPage(name: "/exercise", page: () => const ExersizeScreen()),
           GetPage(
@@ -79,21 +69,24 @@ class MyApp extends StatelessWidget {
           GetPage(name: "/calming", page: () => const CalmingScreen()),
           GetPage(
               name: "/math_facts", page: () => const MathematicalFactsScreen()),
-          GetPage(name: "/quiz", page: () => StemQuizScreen()),
+          GetPage(name: "/quiz", page: () => const StemQuizScreen()),
           GetPage(name: "/cv_generator", page: () => const CvGeneratorScreen()),
           GetPage(
               name: "/cl_generator",
               page: () => const CoverLaterGeneratorScreen()),
+          GetPage(name: "/chat", page: () => const ChatsScreen())
         ],
-        home: //HomeScreen()
-            // DashboardScreen()
-            LoginScreen()
+        home: //const ChatsScreen()
+        const HomeScreen()
+        // DashboardScreen()
+        //const LoginScreen()
         //SignUpScreen()
         // const StemQuizScreen()
-        //FirstScreen()
+        //const FirstScreen()
         //LevelUpScreen()
         //CardListScreen()
         //AnimatedContainersScreen()
+        //const CalmingScreen()
         );
   }
 }

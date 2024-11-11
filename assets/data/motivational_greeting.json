@@ -1,0 +1,28 @@
+{
+    "greeting": [
+      {
+        "title": "Future innovator!",
+        "motivationalPhrase": "The world of STEM awaits your brilliance. Shine on!"
+      },
+      {
+        "title": "Tech explorer!",
+        "motivationalPhrase": "Embrace your curiosity and unlock new possibilities in STEM."
+      },
+      {
+        "title": "STEM trailblazer!",
+        "motivationalPhrase": "Your journey to success starts now. Let's go!"
+      },
+      {
+        "title": "Science enthusiast!",
+        "motivationalPhrase": "Never stop learning and growing in the fascinating world of STEM."
+      },
+      {
+        "title": "Problem-solver!",
+        "motivationalPhrase": "Your skills and passion can make a real difference in STEM."
+      },
+      {
+        "title": "Stargazer!",
+        "motivationalPhrase": "Reach for the stars and achieve your STEM dreams."
+      }
+    ]
+  }

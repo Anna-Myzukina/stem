@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:stem/src/constants.dart' as constant;
+import 'package:stem/src/constants.dart' as globals;
 
 class StemListScreen extends StatelessWidget {
   const StemListScreen({super.key});
@@ -12,21 +12,23 @@ class StemListScreen extends StatelessWidget {
         Container(
           decoration: const BoxDecoration(
             image: DecorationImage(
-                image: AssetImage('assets/images/desert_7.png'),
+                image: AssetImage('assets/images/lavanda_1.jpg'),
                 fit: BoxFit.cover),
           ),
           child: Scaffold(
+            extendBodyBehindAppBar: true,
+            extendBody: true,
             backgroundColor: Colors.transparent,
             body: Container(
               decoration: BoxDecoration(
-                gradient: LinearGradient(
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomCenter,
-                    colors: [
-                      Colors.black,
-                      const Color.fromARGB(227, 71, 94, 98),
-                      Colors.black.withOpacity(0)
-                    ]),
+                // gradient: LinearGradient(
+                //     begin: Alignment.topLeft,
+                //     end: Alignment.bottomCenter,
+                //     colors: [
+                //       Colors.black,
+                //       const Color.fromARGB(227, 71, 94, 98),
+                //       Colors.black.withOpacity(0)
+                //     ]),
               ),
               child: Column(
                 children: [
@@ -36,6 +38,17 @@ class StemListScreen extends StatelessWidget {
                   //   userImage: "assets/images/avatar.jpg",
                   //   buttonColor: constant.lightPinkCard,
                   // ),
+                  Container(
+                  height: 200,
+                  width: MediaQuery.of(context).size.width,
+                  decoration: const BoxDecoration(
+                      image: DecorationImage(
+                          image: AssetImage('assets/images/ai_bg.png')),
+                      color: globals.darkLavanda,
+                      borderRadius: BorderRadius.only(
+                          bottomLeft: Radius.circular(40),
+                          bottomRight: Radius.circular(40))),
+                  ),
                   Expanded(
                     child: SizedBox(
                       child: SingleChildScrollView(
@@ -56,7 +69,7 @@ class StemListScreen extends StatelessWidget {
                                       width: MediaQuery.of(context).size.width,
                                       height: 60,
                                       decoration: BoxDecoration(
-                                        color: constant.pinkOrange,
+                                        color: globals.pinkOrange,
                                         border: Border.all(
                                           color: const Color(0xFF5b5b5b),
                                           width: 3,
@@ -107,7 +120,7 @@ class StemListScreen extends StatelessWidget {
                                       width: MediaQuery.of(context).size.width,
                                       height: 60,
                                       decoration: BoxDecoration(
-                                        color: constant.lightBlueCard,
+                                        color: globals.lightBlueCard,
                                         border: Border.all(
                                           color: const Color(0xFF5b5b5b),
                                           width: 3,
@@ -146,7 +159,7 @@ class StemListScreen extends StatelessWidget {
                                       width: MediaQuery.of(context).size.width,
                                       height: 60,
                                       decoration: BoxDecoration(
-                                        color: constant.lightYellowCard,
+                                        color: globals.lightYellowCard,
                                         border: Border.all(
                                           color: const Color(0xFF5b5b5b),
                                           width: 3,
@@ -185,7 +198,7 @@ class StemListScreen extends StatelessWidget {
                                       width: MediaQuery.of(context).size.width,
                                       height: 60,
                                       decoration: BoxDecoration(
-                                        color: constant.lightPinkCard,
+                                        color: globals.lightPinkCard,
                                         border: Border.all(
                                           color: const Color(0xFF5b5b5b),
                                           width: 3,

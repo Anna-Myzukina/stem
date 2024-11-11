@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:stem/widgets/appbar_row_widget.dart';
 import 'package:stem/widgets/custom_card_full_width.dart';
 import 'package:stem/widgets/custom_card_with_shadow.dart';
@@ -22,6 +23,7 @@ class DashboardScreen extends StatefulWidget {
 
 class _DashboardScreenState extends State<DashboardScreen>
     with TickerProviderStateMixin {
+      
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,10 +50,51 @@ class _DashboardScreenState extends State<DashboardScreen>
                     borderRadius: BorderRadius.only(
                         bottomLeft: Radius.circular(40),
                         bottomRight: Radius.circular(40))),
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(
+                child: const Padding(
+                  padding: EdgeInsets.symmetric(
                       horizontal: 16.0, vertical: 10),
                   child: AppBarRow(),
+                ),
+              ),
+              const SizedBox(height: 40),
+              Padding(
+                  padding: const EdgeInsets.all(18.0),
+                  child: Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: 60,
+                    decoration: BoxDecoration(
+                      color: globals.greenCard,
+                      border: Border.all(
+                        color: globals.greenLavanda,
+                        width: 1,
+                      ),
+                      borderRadius: const BorderRadius.all(Radius.circular(22)),
+                    ),
+                    child: Center(
+                      child: Text('Your STEM space',
+                      style: GoogleFonts.lora(
+                        color: globals.lightLavanda,
+                        fontWeight: FontWeight.w600,
+                        fontSize: 20
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16.0),
+                child: Row(
+                  //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Icon(Icons.question_answer,
+                    color: globals.textVioletLavanda,
+                    size: 26,),
+                    SizedBox(width: 5.0),
+                    Text(
+                      'Quiz',
+                      style: globals.h1DarkVioletText,
+                    ),
+                  ],
                 ),
               ),
               const SizedBox(height: 20),
@@ -76,7 +119,7 @@ class _DashboardScreenState extends State<DashboardScreen>
                                 color: globals.lavanda),
                           ),
                         ),
-                        Expanded(
+                        const Expanded(
                             flex: 2,
                             child: Column(
                               children: [
@@ -85,7 +128,7 @@ class _DashboardScreenState extends State<DashboardScreen>
                                   style: globals.h1DarkVioletText,
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.only(
+                                  padding: EdgeInsets.only(
                                     left: 15.0, 
                                     top: 10.0, 
                                     bottom: 10.0
@@ -100,7 +143,7 @@ class _DashboardScreenState extends State<DashboardScreen>
                             ))
                       ],
                     ),
-                    SizedBox(height: 20,),
+                    const SizedBox(height: 20,),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -112,20 +155,20 @@ class _DashboardScreenState extends State<DashboardScreen>
                             decoration: BoxDecoration(
                               color: globals.lightLavanda,
                               borderRadius: BorderRadius.circular(20.0),
-                              boxShadow: [
+                              boxShadow: const [
                             BoxShadow(
                               color: Colors.white, 
                               offset: Offset(-3, -3), 
                               blurRadius: 1
                               ),
-                            const BoxShadow(
+                            BoxShadow(
                                 color: Color.fromRGBO(214, 223, 230, 1),
                                 offset: Offset(5, 5),
                                 blurRadius: 1)
                                     ]
                                   ),
-                            child: Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+                            child: const Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
                               child: Text('Take quiz',
                               style: TextStyle(
                                 color: globals.textVioletLavanda,
@@ -138,28 +181,6 @@ class _DashboardScreenState extends State<DashboardScreen>
                     )
                   ],
                 ),
-              ),
-              const SizedBox(height: 20),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'Quiz',
-                      style: globals.h1DarkVioletText,
-                    ),
-                    Text(
-                      'View all',
-                      style: globals.h1DarkVioletText,
-                    )
-                  ],
-                ),
-              ),
-              const SizedBox(height: 20),
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: StemRowWidget(),
               ),
               const SizedBox(height: 40),
               const Row(
@@ -283,13 +304,13 @@ class _DashboardScreenState extends State<DashboardScreen>
               ),
               
               const SizedBox(height: 20),
-              InfluentalWomenWidget(),
+              const InfluentalWomenWidget(),
               const SizedBox(height: 20),
-              RealworldProjectsWidget(),
+              const RealworldProjectsWidget(),
               const SizedBox(height: 20),
-              CrowdsourcingPlatformCardWidget(),
+              const CrowdsourcingPlatformCardWidget(),
               const SizedBox(height: 20),
-              MathematicalFactsWidget(),
+              const MathematicalFactsWidget(),
               const SizedBox(height: 20),
               const GoogleMapEventsWidget(),
               const SizedBox(height: 50),
