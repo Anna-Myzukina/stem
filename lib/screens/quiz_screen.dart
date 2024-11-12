@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:stem/src/constants.dart' as globals;
 import 'package:flutter/services.dart' show rootBundle;
+import 'package:stem/widgets/appbar_row_widget.dart';
 import 'package:stem/widgets/custom_card_with_shadow.dart';
 import 'package:stem/widgets/neubutton_widget.dart';
 
@@ -62,42 +63,9 @@ class _StemQuizScreenState extends State<StemQuizScreen> {
         scrollDirection: Axis.vertical,
         child: Column(
           children: [
-            Container(
-                height: 150,
-                width: MediaQuery.of(context).size.width,
-                decoration: const BoxDecoration(
-                    // image: DecorationImage(
-                    //     image: AssetImage('assets/images/ai_bg.png')),
-                    color: globals.darkLavanda,
-                    borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(40),
-                        bottomRight: Radius.circular(40))),
-                child: const Row(
-                  children: [
-                    Expanded(
-                      flex: 1,
-                      child: Padding(
-                        padding: EdgeInsets.only(
-                          top: 20,
-                          left: 16.0),
-                        child: Text(
-                          'Explore you in STEM',
-                          style: TextStyle(
-                              color: globals.lightLavanda,
-                              fontFamily: 'Lora',
-                              fontSize: 30,
-                              fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      flex: 1,
-                      child: Image(
-                          height: 150,
-                          image: AssetImage('assets/images/ai_agent.png')),
-                    )
-                  ],
-                )),
+            const AppBarRow(
+              title: 'Explore you in STEM',
+            ),
             const SizedBox(height: 20.0),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),

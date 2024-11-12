@@ -5,36 +5,32 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import 'package:stem/src/constants.dart' as globals;
 import 'package:stem/widgets/custom_card_with_shadow.dart';
 
-class MathematicalFactsWidget extends StatefulWidget {
-  const MathematicalFactsWidget({
-    super.key,
-  });
+class CalmingWidget extends StatefulWidget {
+  const CalmingWidget({super.key});
 
   @override
-  State<MathematicalFactsWidget> createState() =>
-      _MathematicalFactsWidgetState();
+  State<CalmingWidget> createState() => _CalmingWidgetState();
 }
 
-class _MathematicalFactsWidgetState extends State<MathematicalFactsWidget> {
-  var indexrandom = Random().nextInt(29);
+class _CalmingWidgetState extends State<CalmingWidget> {
+    var indexrandom = Random().nextInt(4);
 
   List _items = [];
 
-  _MathematicalFactsWidgetState() {
+  _CalmingWidgetState() {
     readJson();
   }
 
     Future<void> readJson() async {
     final String response =
-        await rootBundle.loadString('assets/data/math_fact.json');
+        await rootBundle.loadString('assets/data/relax.json');
     final data = await json.decode(response);
     setState(() {
-      _items = data["fact"];
+      _items = data["relax"];
     });
   }
 
@@ -48,22 +44,18 @@ class _MathematicalFactsWidgetState extends State<MathematicalFactsWidget> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-         Row(
+         const Row(
           children: [
-            const SizedBox(width: 8),
-            const Icon(
-              FontAwesomeIcons.squareRootVariable,
+            SizedBox(width: 8),
+            Icon(
+              FontAwesomeIcons.music,
               color: globals.textVioletLavanda,
               size: 26,
             ),
-            const SizedBox(width: 8),
+            SizedBox(width: 8),
             Text(
-              'Mathematical Facts:',
-              style: GoogleFonts.lora(
-                fontSize: 20,
-                color: globals.textVioletLavanda,
-                fontWeight: FontWeight.bold
-              ),
+              'Calming Space:',
+              style: globals.h1DarkVioletText,
             )
           ],
         ),
@@ -79,42 +71,29 @@ class _MathematicalFactsWidgetState extends State<MathematicalFactsWidget> {
                             :  Text(
                   //'The Golden Ratio',
                   _items[indexrandom]["title"],
-                  style: GoogleFonts.lora(
-                    fontSize: 18,
-                    color: globals.textVioletLavanda,
-                    fontWeight: FontWeight.bold
-                  ),
+                  style: const TextStyle(
+                      color: globals.textVioletLavanda,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20),
                 ),
                 const SizedBox(
                   height: 10,
                 ),
                 Row(
                   children: [
-                    const Expanded(
-                      flex: 1,
-                      child: Image(
-                          image: AssetImage('assets/images/mona_liza.png')),
-                    ),
                     Expanded(
-                      flex: 2,
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 10.0),
-                        child: 
-                         _items.isEmpty
+                      flex: 1,
+                      child:  _items.isEmpty
                             ? const Text('Loading...')
-                            :  Text(
-                           _items[indexrandom]["fact"],
-                          //'The Golden Ratio, a mathematical ratio found in nature and art, can be seen in the proportions of the human body, the Parthenon, and the Mona Lisa.',
-                          style: const TextStyle(color: globals.textVioletLavanda),
-                        ),
-                      ),
+                            : Image(
+                          image: AssetImage(_items[indexrandom]['image'])),
                     ),
                   ],
                 ),
                 const SizedBox(height: 10),
                 InkWell(
                   onTap: () {
-                    Get.toNamed('/math_facts');
+                    Get.toNamed('/calming');
                   },
                   child: const Padding(
                     padding: EdgeInsets.only(right: 25),
@@ -122,13 +101,16 @@ class _MathematicalFactsWidgetState extends State<MathematicalFactsWidget> {
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           Text(
-                            'Read More',
-                            style: TextStyle(color: globals.greyLavanda),
+                            'Listen',
+                            style: TextStyle(
+                              fontSize: 20,
+                              color: globals.greyLavanda),
                           ),
                           SizedBox(width: 8),
                           Icon(
-                            Icons.arrow_right_alt,
+                            FontAwesomeIcons.arrowRight,
                             color: Colors.grey,
+                            size: 20,
                           )
                         ]),
                   ),

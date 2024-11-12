@@ -15,11 +15,12 @@ class MathematicScreen extends StatefulWidget {
 }
 
 class _MathematicScreenState extends State<MathematicScreen> {
-   List _items = [];
+  List _items = [];
 
   // Fetch content from the JSON file
   Future<void> readJson() async {
-    final String response = await rootBundle.loadString('assets/data/stem_cources.json');
+    final String response =
+        await rootBundle.loadString('assets/data/stem_cources.json');
 
     final data = await json.decode(response);
     setState(() {
@@ -33,8 +34,7 @@ class _MathematicScreenState extends State<MathematicScreen> {
     readJson();
   }
 
-  
-@override
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
@@ -83,7 +83,7 @@ class _MathematicScreenState extends State<MathematicScreen> {
                         ],
                       ),
                       const Text(
-                        'Mathematic',
+                        'Mathematic cources',
                         style: TextStyle(
                             color: globals.lightLavanda,
                             fontSize: 30,
@@ -111,6 +111,13 @@ class _MathematicScreenState extends State<MathematicScreen> {
                                   style: const TextStyle(
                                       color: globals.textVioletLavanda,
                                       fontWeight: FontWeight.bold,
+                                      fontSize: 20),
+                                ),
+                                const SizedBox(height: 10),
+                                Text(
+                                  item['courseName'],
+                                  style: const TextStyle(
+                                      color: globals.textVioletLavanda,
                                       fontSize: 18),
                                 ),
                                 const SizedBox(height: 20),
@@ -120,46 +127,40 @@ class _MathematicScreenState extends State<MathematicScreen> {
                                       child: Image(
                                           height: 200,
                                           fit: BoxFit.cover,
-                                          image: AssetImage(
-                                              item['image'])),
+                                          image: AssetImage(item['image'])),
                                     ),
-                                    InkWell(
-                                      onTap: () {
-                                        _launchUrl(item['link']);
-                                      }, // _launchUrl,
-                                      child: const Padding(
-                                          padding: EdgeInsets.only(
-                                            top: 50,
-                                          ),
-                                          child: Center(
-                                            child: Image(
-                                                height: 50,
-                                                image: AssetImage(
-                                                    'assets/images/youtube.png')),
-                                          )),
-                                    )
                                   ],
                                 ),
                                 const SizedBox(height: 10),
                                 Text(
-                                  item['courseName'],
+                                  item['description'],
                                   style: const TextStyle(
+                                    fontSize: 18,
                                       color: globals.textVioletLavanda),
                                 ),
-                                const Padding(
-                                  padding: EdgeInsets.only(right: 25),
+                                Padding(
+                                  padding: const EdgeInsets.only(right: 25),
                                   child: Row(
                                       mainAxisAlignment: MainAxisAlignment.end,
                                       children: [
-                                        Text(
-                                          'Read More',
-                                          style: TextStyle(
-                                              color: globals.greyLavanda),
-                                        ),
-                                        SizedBox(width: 8),
-                                        Icon(
-                                          Icons.arrow_right_alt,
-                                          color: Colors.grey,
+                                        InkWell(
+                                          onTap: () {
+                                            _launchUrl(item['link']);
+                                          }, // _launchUrl,
+                                          child: const Row(
+                                            children: [
+                                              Text(
+                                                  'Study',
+                                                  style: TextStyle(
+                                                      fontSize: 20,
+                                                      color: globals.greyLavanda),
+                                                ),
+                                              Icon(
+                                                Icons.arrow_right,
+                                                color: Colors.grey,
+                                              ),
+                                            ],
+                                          ),
                                         )
                                       ]),
                                 ),
@@ -171,18 +172,17 @@ class _MathematicScreenState extends State<MathematicScreen> {
                       ],
                     );
                   })
-              ],
+            ],
           ),
         ),
       ),
     );
   }
-    Future<void> _launchUrl(String link) async {
+
+  Future<void> _launchUrl(String link) async {
     final Uri url = Uri.parse(link);
     if (!await launchUrl(url)) {
       throw Exception('Could not launch $url');
-
     }
   }
-
 }

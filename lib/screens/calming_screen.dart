@@ -1,7 +1,9 @@
 import 'dart:convert';
 import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:stem/widgets/appbar_row_widget.dart';
 import 'package:stem/widgets/custom_card_with_shadow.dart';
 import 'package:stem/src/constants.dart' as globals;
 import 'package:url_launcher/url_launcher.dart';
@@ -88,63 +90,26 @@ class _CalmingScreenState extends State<CalmingScreen>
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Container(
-                  height: 200,
-                  width: MediaQuery.of(context).size.width,
-                  decoration: const BoxDecoration(
-                      // image: DecorationImage(
-                      //     image: AssetImage('assets/images/ai_bg.png')),
-                      color: globals.darkLavanda,
-                      borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(40),
-                          bottomRight: Radius.circular(40))),
-                  child: const Row(
-                    children: [
-                      Expanded(
-                        flex: 1,
-                        child: Padding(
-                          padding: EdgeInsets.only(left: 16.0),
-                          child: Text(
-                            'Calming space',
-                            style: TextStyle(
-                                color: globals.lightLavanda,
-                                fontSize: 30,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                      ),
-                      Expanded(
-                        flex: 1,
-                        child: Image(
-                            height: 150,
-                            image: AssetImage('assets/images/ai_agent.png')),
-                      )
-                    ],
-                  ),
-                ),
+              const AppBarRow(
+                      title: 'Calming\nspace',
+                    ),
               const SizedBox(height: 25),
               Padding(
-                padding: const EdgeInsets.all(18.0),
-                child: Container(
-                  width: MediaQuery.of(context).size.width,
-                  height: 60,
-                  decoration: BoxDecoration(
-                    color: globals.greenCard,
-                    border: Border.all(
-                      color: globals.greenLavanda,
-                      width: 1,
+                padding: const EdgeInsets.only(left: 18.0),
+                child: Row(
+                  children: [
+                    const Icon(FontAwesomeIcons.circleCheck,
+                    color: globals.textVioletLavanda,
                     ),
-                    borderRadius: const BorderRadius.all(Radius.circular(22)),
-                  ),
-                  child: Center(
-                    child: Text('You feeling today?',
+                    const SizedBox(width: 10),
+                    Text('Choose Your feeling today?',
                     style: GoogleFonts.lora(
-                      color: globals.lightLavanda,
+                      color: globals.textVioletLavanda,
                       fontWeight: FontWeight.w600,
                         fontSize: 20
                       ),
                     ),
-                  ),
+                  ],
                 ),
               ),
               const SizedBox(height: 15),
@@ -158,7 +123,7 @@ class _CalmingScreenState extends State<CalmingScreen>
                   width: MediaQuery.of(context).size.width,
                   height: 60,
                   decoration: BoxDecoration(
-                    color: globals.lavandaCard,
+                    color: const Color.fromARGB(176, 156, 139, 255),
                     border: Border.all(
                       color: const Color.fromARGB(174, 101, 34, 178),
                       width: 1,
@@ -323,7 +288,7 @@ class MoodRow extends StatelessWidget {
                     color: globals.lavanda
                   ),
                     borderRadius:
-                        const BorderRadius.all(const Radius.circular(16)),
+                        const BorderRadius.all(Radius.circular(16)),
                     color: globals.lightBlueCard),
                 child: const Center(child: Text('Happy')),
               ),

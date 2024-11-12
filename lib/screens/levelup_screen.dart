@@ -46,23 +46,9 @@ class _LevelUpScreenState extends State<LevelUpScreen>
           ),
           child: Column(
             children: [
-              Container(
-                      height: 200,
-                      width: MediaQuery.of(context).size.width,
-                      decoration: const BoxDecoration(
-                        color: globals.darkLavanda,
-                        borderRadius: BorderRadius.only(
-                            bottomLeft: Radius.circular(40),
-                            bottomRight: Radius.circular(40)),
-                      ),
-                      child: const Padding(
-                        padding: EdgeInsets.symmetric(
-                            horizontal: 16.0, vertical: 10),
-                        child: AppBarRow(
+              const AppBarRow(
                           title: 'Level Up With AI Coacher',
                         ),
-                      )
-                    ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: Column(

@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:stem/widgets/appbar_row_widget.dart';
+import 'package:stem/widgets/calming_widget.dart';
 import 'package:stem/widgets/custom_card_full_width.dart';
-import 'package:stem/widgets/custom_card_with_shadow.dart';
 import 'package:stem/widgets/dashboard_cards/influentsl_women_widget.dart';
 import 'package:stem/widgets/dashboard_cards/mathematical_facts_widget.dart';
 import 'package:stem/widgets/dashboard_cards/realworld_projects_widget.dart';
 import 'package:stem/widgets/google_map_events_widget.dart';
-import 'package:stem/widgets/stem_row_widget.dart';
 import '../widgets/dashboard_cards/crowdsourcing_platforms_widget.dart';
 
 import 'package:stem/src/constants.dart' as globals;
@@ -40,150 +37,137 @@ class _DashboardScreenState extends State<DashboardScreen>
                   Color(0xFFFDFCFD)
                 ]),
           ),
-          child: Column(
+          child: const Column(
             children: [
-              Container(
-                height: 200,
-                width: MediaQuery.of(context).size.width,
-                decoration: const BoxDecoration(
-                    color: globals.darkLavanda,
-                    borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(40),
-                        bottomRight: Radius.circular(40))),
-                child: const Padding(
-                  padding: EdgeInsets.symmetric(
-                      horizontal: 16.0, vertical: 10),
-                  child: AppBarRow(),
-                ),
-              ),
-              const SizedBox(height: 40),
-              Padding(
-                  padding: const EdgeInsets.all(18.0),
-                  child: Container(
-                    width: MediaQuery.of(context).size.width,
-                    height: 60,
-                    decoration: BoxDecoration(
-                      color: globals.greenCard,
-                      border: Border.all(
-                        color: globals.greenLavanda,
-                        width: 1,
-                      ),
-                      borderRadius: const BorderRadius.all(Radius.circular(22)),
-                    ),
-                    child: Center(
-                      child: Text('Your STEM space',
-                      style: GoogleFonts.lora(
-                        color: globals.lightLavanda,
-                        fontWeight: FontWeight.w600,
-                        fontSize: 20
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16.0),
-                child: Row(
-                  //mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Icon(Icons.question_answer,
-                    color: globals.textVioletLavanda,
-                    size: 26,),
-                    SizedBox(width: 5.0),
-                    Text(
-                      'Quiz',
-                      style: globals.h1DarkVioletText,
-                    ),
-                  ],
-                ),
-              ),
-              const SizedBox(height: 20),
-              CustomCardWithShadow(
-                aroundPadding: 15.0,
-                width: MediaQuery.of(context).size.width,
-                widget: Column(
-                  children: [
-                    Row(
-                      children: [
-                        Expanded(
-                          flex: 1,
-                          child: Container(
-                            width: 110,
-                            height: 110,
-                            decoration: const BoxDecoration(
-                                image: DecorationImage(
-                                    image: AssetImage('assets/images/math.png'),
-                                    fit: BoxFit.cover),
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(22)),
-                                color: globals.lavanda),
-                          ),
-                        ),
-                        const Expanded(
-                            flex: 2,
-                            child: Column(
-                              children: [
-                                Text(
-                                  'Find Your STEM Fit',
-                                  style: globals.h1DarkVioletText,
-                                ),
-                                Padding(
-                                  padding: EdgeInsets.only(
-                                    left: 15.0, 
-                                    top: 10.0, 
-                                    bottom: 10.0
-                                    ),
-                                  child: Text(
-                                    'Take quiz to discover study areas and careers that match your interests.',
-                                    style: TextStyle(
-                                        color: globals.textVioletLavanda),
-                                  ),
-                                )
-                              ],
-                            ))
-                      ],
-                    ),
-                    const SizedBox(height: 20,),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        InkWell(
-                          onTap: () {
-                            Get.toNamed('/quiz');
-                          },
-                          child: Container(
-                            decoration: BoxDecoration(
-                              color: globals.lightLavanda,
-                              borderRadius: BorderRadius.circular(20.0),
-                              boxShadow: const [
-                            BoxShadow(
-                              color: Colors.white, 
-                              offset: Offset(-3, -3), 
-                              blurRadius: 1
-                              ),
-                            BoxShadow(
-                                color: Color.fromRGBO(214, 223, 230, 1),
-                                offset: Offset(5, 5),
-                                blurRadius: 1)
-                                    ]
-                                  ),
-                            child: const Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
-                              child: Text('Take quiz',
-                              style: TextStyle(
-                                color: globals.textVioletLavanda,
-                                fontSize: 18
-                              ),
-                              ),
-                            )),
-                        ),
-                      ],
-                    )
-                  ],
-                ),
-              ),
-              const SizedBox(height: 40),
-              const Row(
+              AppBarRow(),
+              SizedBox(height: 40),
+              // Padding(
+              //     padding: const EdgeInsets.all(18.0),
+              //     child: Container(
+              //       width: MediaQuery.of(context).size.width,
+              //       height: 60,
+              //       decoration: BoxDecoration(
+              //         color: const Color.fromARGB(171, 72, 171, 161),
+              //         border: Border.all(
+              //           color: globals.greenLavanda,
+              //           width: 1,
+              //         ),
+              //         borderRadius: const BorderRadius.all(Radius.circular(22)),
+              //       ),
+              //       child: Center(
+              //         child: Text('Your STEM space',
+              //         style: GoogleFonts.lora(
+              //           color: globals.lightLavanda,
+              //           fontWeight: FontWeight.w600,
+              //           fontSize: 20
+              //           ),
+              //         ),
+              //       ),
+              //     ),
+              //   ),
+              //   const Padding(
+              //   padding: EdgeInsets.symmetric(horizontal: 16.0),
+              //   child: Row(
+              //     //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //     children: [
+              //       Icon(Icons.question_answer,
+              //       color: globals.textVioletLavanda,
+              //       size: 26,),
+              //       SizedBox(width: 5.0),
+              //       Text(
+              //         'Quiz',
+              //         style: globals.h1DarkVioletText,
+              //       ),
+              //     ],
+              //   ),
+              // ),
+              // const SizedBox(height: 20),
+              // CustomCardWithShadow(
+              //   aroundPadding: 15.0,
+              //   width: MediaQuery.of(context).size.width,
+              //   widget: Column(
+              //     children: [
+              //       Row(
+              //         children: [
+              //           Expanded(
+              //             flex: 1,
+              //             child: Container(
+              //               width: 110,
+              //               height: 110,
+              //               decoration: const BoxDecoration(
+              //                   image: DecorationImage(
+              //                       image: AssetImage('assets/images/math.png'),
+              //                       fit: BoxFit.cover),
+              //                   borderRadius:
+              //                       BorderRadius.all(Radius.circular(22)),
+              //                   color: globals.lavanda),
+              //             ),
+              //           ),
+              //           const Expanded(
+              //               flex: 2,
+              //               child: Column(
+              //                 children: [
+              //                   Text(
+              //                     'Find Your STEM Fit',
+              //                     style: globals.h1DarkVioletText,
+              //                   ),
+              //                   Padding(
+              //                     padding: EdgeInsets.only(
+              //                       left: 15.0, 
+              //                       top: 10.0, 
+              //                       bottom: 10.0
+              //                       ),
+              //                     child: Text(
+              //                       'Take quiz to discover study areas and careers that match your interests.',
+              //                       style: TextStyle(
+              //                           color: globals.textVioletLavanda),
+              //                     ),
+              //                   )
+              //                 ],
+              //               ))
+              //         ],
+              //       ),
+              //       const SizedBox(height: 20,),
+              //       Row(
+              //         mainAxisAlignment: MainAxisAlignment.center,
+              //         children: [
+              //           InkWell(
+              //             onTap: () {
+              //               Get.toNamed('/quiz');
+              //             },
+              //             child: Container(
+              //               decoration: BoxDecoration(
+              //                 color: globals.lightLavanda,
+              //                 borderRadius: BorderRadius.circular(20.0),
+              //                 boxShadow: const [
+              //               BoxShadow(
+              //                 color: Colors.white, 
+              //                 offset: Offset(-3, -3), 
+              //                 blurRadius: 1
+              //                 ),
+              //               BoxShadow(
+              //                   color: Color.fromRGBO(214, 223, 230, 1),
+              //                   offset: Offset(5, 5),
+              //                   blurRadius: 1)
+              //                       ]
+              //                     ),
+              //               child: const Padding(
+              //                 padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+              //                 child: Text('Take quiz',
+              //                 style: TextStyle(
+              //                   color: globals.textVioletLavanda,
+              //                   fontSize: 18
+              //                 ),
+              //                 ),
+              //               )),
+              //           ),
+              //         ],
+              //       )
+              //     ],
+              //   ),
+              // ),
+              SizedBox(height: 40),
+              Row(
                 children: [
                   SizedBox(width: 8),
                   Icon(
@@ -198,8 +182,8 @@ class _DashboardScreenState extends State<DashboardScreen>
                   )
                 ],
               ),
-              const SizedBox(height: 15),
-              const SingleChildScrollView(
+              SizedBox(height: 15),
+              SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: [
@@ -293,27 +277,29 @@ class _DashboardScreenState extends State<DashboardScreen>
                   ],
                 ),
               ),
-              const SizedBox(
+              SizedBox(
                 height: 15,
               ),
-              const Row(
+              Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Icon(FontAwesomeIcons.ellipsis, size: 30, color: Colors.grey),
                 ],
               ),
               
-              const SizedBox(height: 20),
-              const InfluentalWomenWidget(),
-              const SizedBox(height: 20),
-              const RealworldProjectsWidget(),
-              const SizedBox(height: 20),
-              const CrowdsourcingPlatformCardWidget(),
-              const SizedBox(height: 20),
-              const MathematicalFactsWidget(),
-              const SizedBox(height: 20),
-              const GoogleMapEventsWidget(),
-              const SizedBox(height: 50),
+              SizedBox(height: 20),
+              InfluentalWomenWidget(),
+              SizedBox(height: 20),
+              RealworldProjectsWidget(),
+              SizedBox(height: 20),
+              CrowdsourcingPlatformCardWidget(),
+              SizedBox(height: 20),
+              MathematicalFactsWidget(),
+              SizedBox(height: 20),
+              CalmingWidget(),
+              SizedBox(height: 20),
+              GoogleMapEventsWidget(),
+              SizedBox(height: 50),
             ],
           ),
         ),

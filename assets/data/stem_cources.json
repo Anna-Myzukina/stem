@@ -39,213 +39,213 @@
         ],
         "mathematics": [
             {
-                "courseName": "Single Variable Calculus",
-                "organization": "MIT OpenCourseWare",
-                "link": "https://ocw.mit.edu/courses/mathematics/18-01sc-single-variable-calculus-fall-2010/",
-                "image": "",
-                "description": ""
+              "courseName": "Single Variable Calculus",
+              "organization": "MIT OpenCourseWare",
+              "link": "https://ocw.mit.edu/courses/mathematics/18-01sc-single-variable-calculus-fall-2010/",
+              "image": "assets/images/mit.png",
+              "description": "This course covers differential and integral calculus of a single variable, including applications, and introduces sequences and series."
             },
             {
-                "courseName": "Introduction to Calculus",
-                "organization": "University of Sydney",
-                "link": "https://www.coursera.org/learn/introduction-to-calculus",
-                "image": "",
-                "description": ""
+              "courseName": "Introduction to Calculus",
+              "organization": "University of Sydney",
+              "link": "https://www.coursera.org/learn/introduction-to-calculus",
+              "image": "assets/images/calculus.png",
+              "description": "This course provides a comprehensive introduction to calculus, covering limits, derivatives, integrals, and their applications."
             },
             {
-                "courseName": "Algebra Basics",
-                "organization": "Khan Academy",
-                "link": "https://www.khanacademy.org/math/algebra",
-                "image": "",
-                "description": ""
+              "courseName": "Algebra Basics",
+              "organization": "Khan Academy",
+              "link": "https://www.khanacademy.org/math/algebra",
+              "image": "assets/images/math_khan.png",
+              "description": "Learn the fundamentals of algebra, including equations, inequalities, functions, and graphing."
             },
             {
-                "courseName": "Mathematics for Machine Learning",
-                "organization": "Coursera",
-                "link": "https://www.coursera.org/specializations/mathematics-machine-learning",
-                "image": "",
-                "description": ""
+              "courseName": "Mathematics for Machine Learning",
+              "organization": "Coursera",
+              "link": "https://www.coursera.org/specializations/mathematics-machine-learning",
+              "image": "assets/images/ml.png",
+              "description": "This specialization covers the essential mathematics needed for understanding and applying machine learning algorithms."
             }
-        ],
-        "physics": [
+          ],
+          "physics": [
             {
-                "courseName": "Classical Mechanics",
-                "organization": "MIT OpenCourseWare",
-                "link": "https://ocw.mit.edu/courses/physics/8-01sc-classical-mechanics-fall-2016/",
-                "image": "",
-                "description": ""
+              "courseName": "Classical Mechanics",
+              "organization": "MIT OpenCourseWare",
+              "link": "https://ocw.mit.edu/courses/physics/8-01sc-classical-mechanics-fall-2016/",
+              "image": "https://ocw.mit.edu/courses/physics/8-01sc-classical-mechanics-fall-2016/8-01scf16.jpg",
+              "description": "This course explores the fundamentals of classical mechanics, including Newton's laws, motion, energy, momentum, and rotational dynamics."
             },
             {
-                "courseName": "Physics Fundamentals",
-                "organization": "Khan Academy",
-                "link": "https://www.khanacademy.org/science/physics",
-                "image": "",
-                "description": ""
+              "courseName": "Physics Fundamentals",
+              "organization": "Khan Academy",
+              "link": "https://www.khanacademy.org/science/physics",
+              "image": "https://cdn.kastatic.org/images/khan-logo-vertical-transparent.png",
+              "description": "A comprehensive introduction to the basic concepts of physics, covering topics like motion, forces, energy, and waves."
             },
             {
-                "courseName": "Introduction to Physics",
-                "organization": "Coursera",
-                "link": "https://www.coursera.org/learn/intro-physics",
-                "image": "",
-                "description": ""
+              "courseName": "Introduction to Physics",
+              "organization": "Coursera",
+              "link": "https://www.coursera.org/learn/intro-physics",
+              "image": "https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://s3.amazonaws.com/coursera_assets/ddp/branding/coursera-optimized-logo-square.png",
+              "description": "This course provides a foundational understanding of physics principles, including mechanics, thermodynamics, and electricity."
             },
             {
-                "courseName": "How Things Work: An Introduction to Physics",
-                "organization": "University of Virginia",
-                "link": "https://www.coursera.org/learn/how-things-work",
-                "image": "",
-                "description": ""
+              "courseName": "How Things Work: An Introduction to Physics",
+              "organization": "University of Virginia",
+              "link": "https://www.coursera.org/learn/how-things-work",
+              "image": "https://www.virginia.edu/brand/files/logos/uva-rotunda-logo-orange-rgb.png",
+              "description": "Explore the physics behind everyday objects and phenomena, from bicycles to airplanes to musical instruments."
             }
-        ],
-        "engineering": [
+          ],
+          "engineering": [
             {
-                "courseName": "Engineering Mechanics",
-                "organization": "Brown University",
-                "link": "https://www.coursera.org/learn/engineering-mechanics-statics",
-                "image": "",
-                "description": ""
+              "courseName": "Engineering Mechanics",
+              "organization": "Brown University",
+              "link": "https://www.coursera.org/learn/engineering-mechanics-statics",
+              "image": "https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://s3.amazonaws.com/coursera_assets/ddp/branding/coursera-optimized-logo-square.png",
+              "description": "This course covers the fundamentals of statics, including forces, moments, equilibrium, and structural analysis."
             },
             {
-                "courseName": "Aerospace Structures and Materials",
-                "organization": "Delft University of Technology",
-                "link": "https://online-learning.tudelft.nl/courses/introduction-to-aerospace-structures-and-materials/",
-                "image": "",
-                "description": ""
+              "courseName": "Aerospace Structures and Materials",
+              "organization": "Delft University of Technology",
+              "link": "https://online-learning.tudelft.nl/courses/introduction-to-aerospace-structures-and-materials/",
+              "image": "https://online-learning.tudelft.nl/wp-content/uploads/2020/07/Delft-University-of-Technology-logo.png",
+              "description": "Learn about the materials and structural design considerations for aircraft and spacecraft."
             },
             {
-                "courseName": "Engineering Fundamentals",
-                "organization": "Khan Academy",
-                "link": "https://www.khanacademy.org/science/engineering",
-                "image": "",
-                "description": ""
+              "courseName": "Engineering Fundamentals",
+              "organization": "Khan Academy",
+              "link": "https://www.khanacademy.org/science/engineering",
+              "image": "https://cdn.kastatic.org/images/khan-logo-vertical-transparent.png",
+              "description": "Explore the core concepts of engineering, including problem-solving, design, and analysis across various disciplines."
             },
             {
-                "courseName": "Introduction to Engineering",
-                "organization": "edX",
-                "link": "https://www.edx.org/learn/engineering",
-                "image": "",
-                "description": ""
+              "courseName": "Introduction to Engineering",
+              "organization": "edX",
+              "link": "https://www.edx.org/learn/engineering",
+              "image": "https://www.edx.org/static/images/edx-theme/edx-logo-header.svg",
+              "description": "This course provides an overview of the engineering field, including different disciplines, career paths, and the engineering design process."
             }
-        ],
-        "biology": [
+          ],
+          "biology": [
             {
-                "courseName": "The Secret of Life",
-                "organization": "MIT OpenCourseWare",
-                "link": "https://ocw.mit.edu/courses/biology/7-00sc-fundamentals-of-biology-fall-2011/",
-                "image": "",
-                "description": ""
+              "courseName": "The Secret of Life",
+              "organization": "MIT OpenCourseWare",
+              "link": "https://ocw.mit.edu/courses/biology/7-00sc-fundamentals-of-biology-fall-2011/",
+              "image": "https://ocw.mit.edu/courses/biology/7-00sc-fundamentals-of-biology-fall-2011/7-00SCF11.jpg",
+              "description": "This introductory biology course explores the fundamental principles of biochemistry, genetics, molecular biology, and cell biology."
             },
             {
-                "courseName": "Introduction to Genetics and Evolution",
-                "organization": "Duke University",
-                "link": "https://www.coursera.org/learn/genetics-evolution",
-                "image": "",
-                "description": ""
+              "courseName": "Introduction to Genetics and Evolution",
+              "organization": "Duke University",
+              "link": "https://www.coursera.org/learn/genetics-evolution",
+              "image": "https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://s3.amazonaws.com/coursera_assets/ddp/branding/coursera-optimized-logo-square.png",
+              "description": "Learn about the basic principles of genetics and evolution, from DNA to natural selection."
             },
             {
-                "courseName": "Biology Basics",
-                "organization": "Khan Academy",
-                "link": "https://www.khanacademy.org/science/biology",
-                "image": "",
-                "description": ""
+              "courseName": "Biology Basics",
+              "organization": "Khan Academy",
+              "link": "https://www.khanacademy.org/science/biology",
+              "image": "https://cdn.kastatic.org/images/khan-logo-vertical-transparent.png",
+              "description": "Covering a wide range of topics, this course provides a comprehensive introduction to biology, from cells to ecosystems."
             },
             {
-                "courseName": "Biology for Everyone",
-                "organization": "Coursera",
-                "link": "https://www.coursera.org/courses?query=biology",
-                "image": "",
-                "description": ""
+              "courseName": "Biology for Everyone",
+              "organization": "Coursera",
+              "link": "https://www.coursera.org/courses?query=biology",
+              "image": "https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://s3.amazonaws.com/coursera_assets/ddp/branding/coursera-optimized-logo-square.png",
+              "description": "Explore the wonders of biology through a variety of courses covering topics like human biology, genetics, and ecology."
             }
-        ],
-        "chemistry": [
+          ],
+          "chemistry": [
             {
-                "courseName": "Introduction to Chemistry",
-                "organization": "Khan Academy",
-                "link": "https://www.khanacademy.org/science/chemistry",
-                "image": "",
-                "description": ""
+              "courseName": "Introduction to Chemistry",
+              "organization": "Khan Academy",
+              "link": "https://www.khanacademy.org/science/chemistry",
+              "image": "https://cdn.kastatic.org/images/khan-logo-vertical-transparent.png",
+              "description": "Explore the fundamentals of chemistry, including atoms, molecules, reactions, and the periodic table."
             },
             {
-                "courseName": "Principles of Chemical Science",
-                "organization": "MIT OpenCourseWare",
-                "link": "https://ocw.mit.edu/courses/chemistry/5-111-principles-of-chemical-science-fall-2008/",
-                "image": "",
-                "description": ""
+              "courseName": "Principles of Chemical Science",
+              "organization": "MIT OpenCourseWare",
+              "link": "https://ocw.mit.edu/courses/chemistry/5-111-principles-of-chemical-science-fall-2008/",
+              "image": "https://ocw.mit.edu/courses/chemistry/5-111-principles-of-chemical-science-fall-2008/5-111f08.jpg",
+              "description": "This course delves into the principles of chemistry, covering thermodynamics, kinetics, and chemical equilibrium."
             },
             {
-                "courseName": "Basic Chemistry",
-                "organization": "edX",
-                "link": "https://www.edx.org/learn/chemistry",
-                "image": "",
-                "description": ""
+              "courseName": "Basic Chemistry",
+              "organization": "edX",
+              "link": "https://www.edx.org/learn/chemistry",
+              "image": "https://www.edx.org/static/images/edx-theme/edx-logo-header.svg",
+              "description": "Learn the basics of chemistry, including atomic structure, chemical bonding, and chemical reactions."
             },
             {
-                "courseName": "Chemistry Essentials",
-                "organization": "Coursera",
-                "link": "https://www.coursera.org/courses?query=chemistry",
-                "image": "",
-                "description": ""
+              "courseName": "Chemistry Essentials",
+              "organization": "Coursera",
+              "link": "https://www.coursera.org/courses?query=chemistry",
+              "image": "https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://s3.amazonaws.com/coursera_assets/ddp/branding/coursera-optimized-logo-square.png",
+              "description": "This collection of courses covers essential chemistry concepts, from introductory to advanced levels."
             }
-        ],
-        "astronomy": [
+          ],
+          "astronomy": [
             {
-                "courseName": "Astrobiology and the Search for Extraterrestrial Life",
-                "organization": "edX",
-                "link": "https://www.edx.org/course/astrobiology",
-                "image": "",
-                "description": ""
+              "courseName": "Astrobiology and the Search for Extraterrestrial Life",
+              "organization": "edX",
+              "link": "https://www.edx.org/course/astrobiology",
+              "image": "https://www.edx.org/static/images/edx-theme/edx-logo-header.svg",
+              "description": "Explore the fascinating field of astrobiology and the search for life beyond Earth."
             },
             {
-                "courseName": "Astronomy: Exploring Time and Space",
-                "organization": "Coursera",
-                "link": "https://www.coursera.org/learn/astronomy",
-                "image": "",
-                "description": ""
+              "courseName": "Astronomy: Exploring Time and Space",
+              "organization": "Coursera",
+              "link": "https://www.coursera.org/learn/astronomy",
+              "image": "https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://s3.amazonaws.com/coursera_assets/ddp/branding/coursera-optimized-logo-square.png",
+              "description": "Embark on a journey through the cosmos, learning about stars, galaxies, and the universe."
             },
             {
-                "courseName": "Introduction to Astronomy",
-                "organization": "MIT OpenCourseWare",
-                "link": "https://ocw.mit.edu/courses/earth-atmospheric-and-planetary-sciences/12-400-the-solar-system-spring-2006/",
-                "image": "",
-                "description": ""
+              "courseName": "Introduction to Astronomy",
+              "organization": "MIT OpenCourseWare",
+              "link": "https://ocw.mit.edu/courses/earth-atmospheric-and-planetary-sciences/12-400-the-solar-system-spring-2006/",
+              "image": "https://ocw.mit.edu/courses/earth-atmospheric-and-planetary-sciences/12-400-the-solar-system-spring-2006/12-400s06.jpg",
+              "description": "Gain a foundational understanding of astronomy, from the solar system to distant galaxies."
             },
             {
-                "courseName": "Astronomy for All",
-                "organization": "University of Arizona",
-                "link": "https://www.coursera.org/learn/astronomy",
-                "image": "",
-                "description": ""
+              "courseName": "Astronomy for All",
+              "organization": "University of Arizona",
+              "link": "https://www.coursera.org/learn",
+              "image": "https://brand.arizona.edu/sites/default/files/university_of_arizona_primary_logo_rgb_0.png", 
+              "description": "Discover the wonders of the universe with this accessible and engaging astronomy course."
             }
-        ],
-        "environmentalScience": [
+          ],
+          "environmentalScience": [
             {
-                "courseName": "Environmental Science Fundamentals",
-                "organization": "Yale University",
-                "link": "https://oyc.yale.edu/environmental-studies/evst-255",
-                "image": "",
-                "description": ""
+              "courseName": "Environmental Science Fundamentals",
+              "organization": "Yale University",
+              "link": "https://oyc.yale.edu/environmental-studies/evst-255",
+              "image": "https://www.yale.edu/sites/default/files/yale_shield_blue_300.png", 
+              "description": "This course explores the fundamental principles of environmental science, including ecology, pollution, and resource management."
             },
             {
-                "courseName": "Environmental Science and Sustainability",
-                "organization": "University of Illinois",
-                "link": "https://www.coursera.org/learn/environmental-science-sustainability",
-                "image": "",
-                "description": ""
+              "courseName": "Environmental Science and Sustainability",
+              "organization": "University of Illinois",
+              "link": "https://www.coursera.org/learn/environmental-science-sustainability",
+              "image": "https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://s3.amazonaws.com/coursera_assets/ddp/branding/coursera-optimized-logo-square.png",
+              "description": "Learn about the key challenges and solutions for environmental sustainability, including climate change, biodiversity, and resource conservation."
             },
             {
-                "courseName": "Ecology and Environment",
-                "organization": "Coursera",
-                "link": "https://www.coursera.org/courses?query=environmental%20science",
-                "image": "",
-                "description": ""
+              "courseName": "Ecology and Environment",
+              "organization": "Coursera",
+              "link": "https://www.coursera.org/courses?query=environmental%20science",
+              "image": "https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://s3.amazonaws.com/coursera_assets/ddp/branding/coursera-optimized-logo-square.png",
+              "description": "Explore the intricate relationships between organisms and their environment through a variety of ecology courses."
             },
             {
-                "courseName": "Introduction to Environmental Science",
-                "organization": "MIT OpenCourseWare",
-                "link": "https://ocw.mit.edu/courses/earth-atmospheric-and-planetary-sciences/12-009j-theoretical-environmental-science-spring-2007/",
-                "image": "",
-                "description": ""
+              "courseName": "Introduction to Environmental Science",
+              "organization": "MIT OpenCourseWare",
+              "link": "https://ocw.mit.edu/courses/earth-atmospheric-and-planetary-sciences/12-009j-theoretical-environmental-science-spring-2007/",
+              "image": "https://ocw.mit.edu/courses/earth-atmospheric-and-planetary-sciences/12-009j-theoretical-environmental-science-spring-2007/12-009js07.jpg",
+              "description": "This course provides an introduction to the science of the environment, covering topics like climate, water resources, and pollution."
             }
-        ]
+          ]
     }
 }

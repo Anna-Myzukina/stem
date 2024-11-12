@@ -53,51 +53,57 @@ class _ChatsScreenState extends State<ChatsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        shadowColor: Colors.transparent,
-        centerTitle: true,
-        //toolbarHeight: 91,
-        //leadingWidth: 76,
-        backgroundColor: globals.darkLavanda,
-        leading: InkWell(
-          borderRadius: BorderRadius.circular(20),
-          splashColor: globals.lightPinkCard,
-          onTap: () {
-            Get.toNamed('/');
-          },
-          child: Padding(
-            padding: const EdgeInsets.only(left: 16.0, bottom: 16),
-            child: Container(
-              width: 100,
-              height: 100,
-              decoration: BoxDecoration(
-                  color: const Color.fromARGB(127, 181, 126, 220),
-                  shape: BoxShape.circle,
-                  border: Border.all(color: Colors.white)),
-              child: const Center(
-                child: Icon(
-                  Icons.arrow_back,
-                  color: Colors.white,
-                  size: 20,
-                ),
-              ),
-            ),
-          ),
+      body: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomCenter,
+              colors: [
+                Color(0xFFebdaff),
+                Color(0xFFf7f0ff),
+                Color(0xFFFDFCFD)
+              ]),
         ),
-        title: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(
-              'Speaking to AI bot',
-              style: GoogleFonts.lora(
-                  fontSize: 20.0,
-                  color: globals.textVioletLavanda,
-                  fontWeight: FontWeight.bold),
-            ),
-          ],
-        ),
-        actions: [
-          InkWell(
+            const SizedBox(height: 30.0),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                InkWell(
+                    borderRadius: BorderRadius.circular(20),
+                    splashColor: globals.lightPinkCard,
+                    onTap: () {
+                      Get.toNamed('/');
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 16.0, bottom: 16),
+                      child: Container(
+                        width: 50,
+                        height: 50,
+                        decoration: BoxDecoration(
+                            color: const Color.fromARGB(127, 181, 126, 220),
+                            shape: BoxShape.circle,
+                            border: Border.all(color: Colors.white)),
+                        child: const Center(
+                          child: Icon(
+                            Icons.arrow_back,
+                            color: Colors.white,
+                            size: 20,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Text(
+                      'Speaking to AI bot',
+                      style: GoogleFonts.lora(
+                          fontSize: 22.0,
+                          color: globals.textVioletLavanda,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  InkWell(
             borderRadius: BorderRadius.circular(20),
             splashColor: globals.lightPinkCard,
             onTap: () {
@@ -129,67 +135,54 @@ class _ChatsScreenState extends State<ChatsScreen> {
                           ],
                         );
                       });
-            },
-            child: Padding(
-              padding: const EdgeInsets.only(left: 16.0, bottom: 16),
-              child: Container(
-                width: 100,
-                height: 100,
-                decoration: BoxDecoration(
-                    color: const Color.fromARGB(127, 181, 126, 220),
-                    shape: BoxShape.circle,
-                    border: Border.all(color: Colors.white)),
-                child: const Center(
-                  child: Icon(FontAwesomeIcons.ellipsis,
-                      size: 30, color: Colors.white),
-                ),
-              ),
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 16.0, bottom: 16),
+                      child: Container(
+                        width: 50,
+                        height: 50,
+                        decoration: BoxDecoration(
+                            color: const Color.fromARGB(127, 181, 126, 220),
+                            shape: BoxShape.circle,
+                            border: Border.all(color: Colors.white)),
+                        child: const Center(
+                          child: Icon(FontAwesomeIcons.ellipsis,
+                              size: 30, color: Colors.white),
+                        ),
+                      ),
+                    ),
+                  ),
+              ],
             ),
-          ),
-        ],
-      ),
-      body: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomCenter,
-              colors: [
-                Color(0xFFebdaff),
-                Color(0xFFf7f0ff),
-                Color(0xFFFDFCFD)
-              ]),
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            const SizedBox(height: 30),
+            SizedBox(
+              height: 350,
+              child: Lottie.asset('assets/lottie/shpere.json')),
+            //Lottie.network('https://lottie.host/embed/ce2a6d09-648e-4e70-8165-0700da3f38f4/FUHnxn9bdg.json'),
             const Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Padding(
-                  padding: EdgeInsets.only(left: 16.0),
+                  padding: EdgeInsets.only(left: 16.0, bottom: 20),
                   child: Text(
                     'Go a head, I\'m listening',
                     style: TextStyle(
                         color: globals.lavandaCard,
-                        fontSize: 20,
+                        fontSize: 25,
                         fontWeight: FontWeight.bold),
                   ),
                 ),
               ],
             ),
-            Lottie.asset('assets/lottie/shpere.json'),
-            //Lottie.network('https://lottie.host/embed/ce2a6d09-648e-4e70-8165-0700da3f38f4/FUHnxn9bdg.json'),
-            const Text('Speach to text'),
             Padding(
-              padding: const EdgeInsets.only(bottom: 200.0),
+              padding: const EdgeInsets.only(bottom: 120.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  Text('Chat icon'),
+                  const Text('Chat icon'),
                   Padding(
                     padding: const EdgeInsets.only(bottom: 20.0),
                     child: AvatarGlow(
+                        repeat: isListening ? true : false,
                         startDelay: const Duration(milliseconds: 1000),
                         glowColor: globals.lavandaCard,
                         glowShape: BoxShape.circle,
@@ -199,7 +192,6 @@ class _ChatsScreenState extends State<ChatsScreen> {
                           borderRadius: BorderRadius.circular(999.0),
                           onTap: () {
                             startListening();
-                            isListening != isListening;
                           },
                           child: SizedBox(
                             width: 40.0,
@@ -217,7 +209,7 @@ class _ChatsScreenState extends State<ChatsScreen> {
                           ),
                         )),
                   ),
-                  Text('Close')
+                  const Text('Close')
                 ],
               ),
             )
