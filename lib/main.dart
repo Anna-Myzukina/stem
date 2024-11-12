@@ -1,5 +1,9 @@
+//import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:stem/screens/message_screen.dart';
+import 'firebase_options.dart';
 import 'package:stem/screens/astronomy_screen.dart';
 import 'package:stem/screens/biology_screen.dart';
 import 'package:stem/screens/calming_screen.dart';
@@ -25,7 +29,15 @@ import 'package:stem/screens/quiz_screen.dart';
 import 'package:stem/screens/user_profile_screen.dart';
 
 void main() async {
-  runApp(const MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  //  try {
+    await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
+  // } catch (e) {
+    //print('Unable to initialze Firebase');
+    runApp(const MyApp());
+  //}
 }
 
 class MyApp extends StatelessWidget {
@@ -74,12 +86,13 @@ class MyApp extends StatelessWidget {
           GetPage(
               name: "/cl_generator",
               page: () => const CoverLaterGeneratorScreen()),
-          GetPage(name: "/chat", page: () => const ChatsScreen())
+          GetPage(name: "/chat", page: () => const ChatsScreen()),
+          GetPage(name: "/message", page: () => const MessageScreen())
         ],
-        home: //const ChatsScreen()
-        const HomeScreen()
-        // DashboardScreen()
-        //const LoginScreen()
+        home: const ChatsScreen()
+            //const HomeScreen()
+            // DashboardScreen()
+            //const LoginScreen()
         //SignUpScreen()
         // const StemQuizScreen()
         //const FirstScreen()
