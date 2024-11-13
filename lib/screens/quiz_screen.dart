@@ -1,10 +1,10 @@
 import 'dart:convert';
+import 'package:firebase_vertexai/firebase_vertexai.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:stem/src/constants.dart' as globals;
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:stem/widgets/appbar_row_widget.dart';
-import 'package:stem/widgets/custom_card_with_shadow.dart';
 import 'package:stem/widgets/neubutton_widget.dart';
 
 class StemQuizScreen extends StatefulWidget {
@@ -21,32 +21,41 @@ class _StemQuizScreenState extends State<StemQuizScreen> {
   int _currentQuestionIndex = 0;
   bool _showResultButton = false;
   late double _progressValue;
+  String? generatedText;
+  late final GenerativeModel model;
 
   @override
   void initState() {
     super.initState();
     _loadQuizData();
-
+    model = FirebaseVertexAI.instance.generativeModel(model: 'gemini-1.5-flash');
     _progressValue = 0.0;
   }
 
-  // Load quiz data from JSON file
   Future<void> _loadQuizData() async {
-    final String response =
-        await rootBundle.loadString('assets/data/quiz.json');
+    final String response = await rootBundle.loadString('assets/data/quiz.json');
     final data = await json.decode(response);
     setState(() {
       _quizData = data['questions'];
     });
   }
 
-  // Function to generate the prompt for Gemini AI
   String _generatePrompt() {
-    String prompt =
-        "You are a carrer consultant. Based on these interests: ${_selectedInterests.join(', ')}, ";
-    prompt +=
-        "what STEM fields would be a good fit for me, you should name one of: Science, Mathematic, Engineering, Technology? The answer shuold be short, few setnences, in supportive manner with explanation why";
+    String prompt = "You are a career consultant. Based on these interests: ${_selectedInterests.join(', ')}, ";
+    prompt += "what STEM fields would be a good fit for me? Name one of: Science, Mathematics, Engineering, Technology. Answer in a short, supportive manner with an explanation why.";
     return prompt;
+  }
+
+  Future<void> generateText() async {
+    final promptContent = [Content.text(_generatePrompt())];
+    try {
+      final response = await model.generateContent(promptContent);
+      setState(() {
+        generatedText = response.text;
+      });
+    } catch (e) {
+      print('Error generating text: $e');
+    }
   }
 
   @override
@@ -83,10 +92,8 @@ class _StemQuizScreenState extends State<StemQuizScreen> {
                     child: TweenAnimationBuilder<double>(
                       tween: Tween<double>(
                           begin: 0.0,
-                          end:
-                              (_currentQuestionIndex + 1) / _quizData.length),
-                      duration: const Duration(
-                          milliseconds: 500), // Adjust the duration as needed
+                          end: (_currentQuestionIndex + 1) / _quizData.length),
+                      duration: const Duration(milliseconds: 500),
                       builder: (context, value, child) =>
                           LinearProgressIndicator(
                         backgroundColor: globals.darkLavanda,
@@ -101,53 +108,53 @@ class _StemQuizScreenState extends State<StemQuizScreen> {
               ),
             ),
             const SizedBox(height: 20.0),
-            CustomCardWithShadow(
-              aroundPadding: 10.0,
-              width: MediaQuery.of(context).size.width,
-              widget: const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16.0),
-                child: Row(
-                  children: [
-                    Expanded(
-                      flex: 3,
-                      child: Text(
-                        'Answer these 21 quick questions to discover subject that might be a good fit for you.',
-                        textAlign: TextAlign.left,
-                        style: TextStyle(
-                          color: globals.greyLavanda,
-                          fontSize: 16,
-                          fontFamily: 'Lora',
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                    SizedBox(width: 10),
-                    Expanded(
-                      flex: 1,
-                      child: Image(
-                        image: AssetImage('assets/images/math.png')),
-                    )
-                  ],
-                ),
-              ),
-            ),
+            // CustomCardWithShadow(
+            //   aroundPadding: 10.0,
+            //   width: MediaQuery.of(context).size.width,
+            //   widget: const Padding(
+            //     padding: EdgeInsets.symmetric(horizontal: 16.0),
+            //     child: Row(
+            //       children: [
+            //         Expanded(
+            //           flex: 3,
+            //           child: Text(
+            //             'Try',
+                        //'Answer these 21 quick questions to discover subjects that might be a good fit for you.',
+            //             textAlign: TextAlign.left,
+            //             style: TextStyle(
+            //               color: globals.greyLavanda,
+            //               fontSize: 16,
+            //               fontFamily: 'Lora',
+            //               fontWeight: FontWeight.bold,
+            //             ),
+            //           ),
+            //         ),
+            //         SizedBox(width: 10),
+            //         Expanded(
+            //           flex: 1,
+            //           child: Image(image: AssetImage('assets/images/math.png')),
+            //         )
+            //       ],
+            //     ),
+            //   ),
+            // ),
             const SizedBox(height: 20.0),
-            // current question
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: Text(currentQuestion['text'], 
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                color: globals.textVioletLavanda,
-                fontSize: 18,
-                fontFamily: 'Lora',
-                fontWeight: FontWeight.bold
-              )),
+              child: Text(
+                currentQuestion['text'],
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  color: globals.textVioletLavanda,
+                  fontSize: 18,
+                  fontFamily: 'Lora',
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
             ),
             const SizedBox(height: 15.0),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10.0),
-              // this will come from quiz.json
               child: Row(
                 children: [
                   for (var option in options)
@@ -182,36 +189,20 @@ class _StemQuizScreenState extends State<StemQuizScreen> {
                                         color: isHover
                                             ? const Color.fromARGB(83, 40, 10, 75)
                                             : const Color(0xFFf4ecff),
-                                        borderRadius:
-                                            BorderRadius.circular(10),
+                                        borderRadius: BorderRadius.circular(10),
                                         border: Border.all(
-                                            color:
-                                                globals.lavanda)),
+                                            color: globals.lavanda)),
                                     child: Padding(
                                       padding: const EdgeInsets.all(8.0),
                                       child: InkWell(
                                         onTap: () {
                                           setState(() {
-                                            _selectedInterests.add(
-                                              option['text'],
-                                            );
+                                            _selectedInterests.add(option['text']);
                                             _progressValue += 0.1;
-                                            // Only increment if it won't go out of bounds
                                             if (_currentQuestionIndex <
                                                 _quizData.length - 1) {
                                               _currentQuestionIndex++;
                                             }
-                        
-                                            if (_currentQuestionIndex <=
-                                                _quizData.length) {
-                                              // Now check the condition
-                                              String prompt =
-                                                  _generatePrompt();
-                                              print(
-                                                  "My prompt is: $prompt");
-                                            }
-                        
-                                            // Show the "Show Result" button after the last question
                                             if (_currentQuestionIndex ==
                                                 _quizData.length - 1) {
                                               _showResultButton = true;
@@ -225,8 +216,7 @@ class _StemQuizScreenState extends State<StemQuizScreen> {
                                             style: const TextStyle(
                                                 color: globals.textVioletLavanda,
                                                 fontSize: 18,
-                                                fontFamily: 'Lora'
-                                                ),
+                                                fontFamily: 'Lora'),
                                           ),
                                         ),
                                         onHover: (value) {
@@ -244,61 +234,50 @@ class _StemQuizScreenState extends State<StemQuizScreen> {
                         ),
                       ),
                     ),
-                  //const SizedBox(height: 20.0),
                 ],
               ),
             ),
-            //const SizedBox(height: 20.0),
-        
-               const SizedBox(height: 25,),
-               //if (_showResultButton)
-                NeuButton(
-                  buttonColor: globals.textVioletLavanda,
-                  onTap: () {
-                    _showResultButton != true ? Get.toNamed('/home')
-                  // TODO: Display the prompt from Gemini AI
-                  : showDialog(
-                      context: context,
-                      builder: (BuildContext context) {
-                        return AlertDialog(
-                          title: const Text(
-                            //TODO: prompt from Gemini
-                            'Science is a great fit for you! '),
-                          content: const Text(
-                            //TODO: prompt from Gemini
-                            'You clearly enjoy exploring the natural world and working with your hands, and your interest in helping sick people could lead to a rewarding career in healthcare.'
-                           // _generatePrompt()
+            const SizedBox(height: 25),
+            NeuButton(
+              buttonColor: globals.textVioletLavanda,
+              onTap: () async {
+                if (_showResultButton) {
+                  await generateText();
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                        title: const Text('STEM Recommendation'),
+                        content: Text(generatedText ?? 'Error generating recommendation.'),
+                        actions: [
+                          TextButton(
+                            onPressed: () {
+                              Get.toNamed('/home');
+                            },
+                            child: const Text(
+                              "Next",
+                              style: TextStyle(fontSize: 18, fontFamily: 'Lora'),
                             ),
-                          actions: [
-                            TextButton(
-                                onPressed: () {
-                                  Get.toNamed('/home');
-                                  // TODO: Implement navigation to next screen
-                                },
-                                child: const Text("Next", 
-                                  style: TextStyle(
-                                    fontSize: 18,
-                                    fontFamily: 'Lora'
-                                    ),
-                                  ),
-                                )
-                          ],
-                        );
-                      });
-                  print(
-                      "Show the result from Gemini AI: ${_generatePrompt()}");
-                },
-                  isIcon: false,
-                  text: Text(
-                    _showResultButton == true ? 'Show Result' : 'Back',
-                    style: const TextStyle(
-                      color: globals.lavanda,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18.0
-                    ),),
-                  newWidth: 150,
+                          ),
+                        ],
+                      );
+                    },
+                  );
+                } else {
+                  Get.toNamed('/home');
+                }
+              },
+              isIcon: false,
+              text: Text(
+                _showResultButton ? 'Show Result' : 'Back',
+                style: const TextStyle(
+                  color: globals.lavanda,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18.0,
                 ),
-        
+              ),
+              newWidth: 150,
+            ),
             const SizedBox(width: 50.0),
           ],
         ),

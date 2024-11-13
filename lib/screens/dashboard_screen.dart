@@ -195,7 +195,7 @@ class _DashboardScreenState extends State<DashboardScreen>
                       list2: 'University of Michigan',
                       list3: 'freeCodeCamp',
                       list4: 'The Odin Project',
-                      cardType: CustomCardGradientType.blue,
+                      cardType: CustomCardGradientType.purple,
                     ),
                     SizedBox(width: 15),
                     CustomCardModuleFullWidth(
@@ -206,7 +206,7 @@ class _DashboardScreenState extends State<DashboardScreen>
                       list2: 'University of Sydney',
                       list3: 'Khan Academy',
                       list4: 'Coursera',
-                      cardType: CustomCardGradientType.purple,
+                      cardType: CustomCardGradientType.blue,
                     ),
                     SizedBox(width: 15),
                     CustomCardModuleFullWidth(

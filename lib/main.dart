@@ -2,6 +2,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:stem/screens/cover_letter_generator_screen.dart';
+import 'package:stem/screens/levelup_screen.dart';
 import 'package:stem/screens/message_screen.dart';
 import 'firebase_options.dart';
 import 'package:stem/screens/astronomy_screen.dart';
@@ -9,7 +11,6 @@ import 'package:stem/screens/biology_screen.dart';
 import 'package:stem/screens/calming_screen.dart';
 import 'package:stem/screens/chats_screen.dart';
 import 'package:stem/screens/chemistry_screen.dart';
-import 'package:stem/screens/cl_generator_screen.dart';
 import 'package:stem/screens/computer_science_screen.dart';
 import 'package:stem/screens/cv_generator_screen.dart';
 import 'package:stem/screens/dashboard_screen.dart';
@@ -31,12 +32,12 @@ import 'package:stem/screens/user_profile_screen.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   //  try {
-    await Firebase.initializeApp(
-      options: DefaultFirebaseOptions.currentPlatform,
-    );
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   // } catch (e) {
-    //print('Unable to initialze Firebase');
-    runApp(const MyApp());
+  //print('Unable to initialze Firebase');
+  runApp(const MyApp());
   //}
 }
 
@@ -85,18 +86,18 @@ class MyApp extends StatelessWidget {
           GetPage(name: "/cv_generator", page: () => const CvGeneratorScreen()),
           GetPage(
               name: "/cl_generator",
-              page: () => const CoverLaterGeneratorScreen()),
+              page: () => const CoverLetterGeneratorScreen()),
           GetPage(name: "/chat", page: () => const ChatsScreen()),
           GetPage(name: "/message", page: () => const MessageScreen())
         ],
-        home: const ChatsScreen()
+        home: //const ChatsScreen()
             //const HomeScreen()
             // DashboardScreen()
             //const LoginScreen()
-        //SignUpScreen()
-        // const StemQuizScreen()
-        //const FirstScreen()
-        //LevelUpScreen()
+            //SignUpScreen()
+            // const StemQuizScreen()
+            const FirstScreen()
+            // LevelUpScreen()
         //CardListScreen()
         //AnimatedContainersScreen()
         //const CalmingScreen()

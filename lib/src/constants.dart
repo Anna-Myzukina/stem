@@ -40,3 +40,9 @@ const Color deepPink = Color(0xFFFD1960);
 const Color lightBlue = Color(0xFF29D3E8);
 
 const Color badgeColorGreen = Color(0xffb8ff8d);
+
+const Color blueGreyLavanda = Color(0xFFbcccff);
+const Color blueBrightLavanda = Color(0xFF8c9de2);
+const Color blueDarkLavanda = Color(0xFF7166b1);
+const Color blueLavanda = Color(0xFFbfa4d3);
+const Color bluePinkLavanda = Color(0xFFf0e2f9);

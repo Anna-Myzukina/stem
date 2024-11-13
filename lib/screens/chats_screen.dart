@@ -18,23 +18,14 @@ class ChatsScreen extends StatefulWidget {
 class _ChatsScreenState extends State<ChatsScreen> {
   late speach.SpeechToText _speech;
   bool isListening = false;
-  String aiText = 'You are not alone';
+  String aiText = 'Let\'s talk! 💗 All you need is just to press mic button and talk! I\'m listening.';
   String? generatedText;
   late final GenerativeModel model;
-  
-  final prompt = [Content.text('Write a story about a magic backpack.')];
 
-  @override
-  void initState() {
-    super.initState();
-    model =
-      FirebaseVertexAI.instance.generativeModel(model: 'gemini-1.5-flash');
-
-    _speech = speach.SpeechToText();
-
-    // Call the function to generate text when the widget initializes
-    _generateText();
-  }
+  final prompt = [
+    Content.text(
+        'I\'m a senior Java Script developer. Write a cover letter for me.')
+  ];
 
   Future<void> _generateText() async {
     try {
@@ -67,6 +58,18 @@ class _ChatsScreenState extends State<ChatsScreen> {
       setState(() => isListening = false);
       _speech.stop();
     }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    model =
+        FirebaseVertexAI.instance.generativeModel(model: 'gemini-1.5-flash');
+
+    _speech = speach.SpeechToText();
+
+    // Call the function to generate text when the widget initializes
+    _generateText();
   }
 
   @override
@@ -139,23 +142,27 @@ class _ChatsScreenState extends State<ChatsScreen> {
                                 //TODO: prompt from Gemini
                                 'Science is a great fit for you! '),
                             content: Text(
-                                //TODO: prompt from Gemini
-                                generatedText ?? 'Generate response...',
-                                //'You clearly enjoy exploring the natural world and working with your hands, and your interest in helping sick people could lead to a rewarding career in healthcare.'
-                                // _generatePrompt()
-                                ),
+                              //TODO: prompt from Gemini
+                              generatedText ?? 'Generate response...',
+                              //'You clearly enjoy exploring the natural world and working with your hands, and your interest in helping sick people could lead to a rewarding career in healthcare.'
+                              // _generatePrompt()
+                            ),
                             actions: [
                               TextButton(
                                 onPressed: () {
                                   Get.toNamed('/home');
-                                  // TODO: Implement navigation to next screen
                                 },
                                 child: const Text(
                                   "Next",
                                   style: TextStyle(
                                       fontSize: 18, fontFamily: 'Lora'),
                                 ),
-                              )
+                              ),
+                              IconButton(
+                                  onPressed: () {
+                                    
+                                  },
+                                  icon: const Icon(FontAwesomeIcons.xmark))
                             ],
                           );
                         });
@@ -178,23 +185,35 @@ class _ChatsScreenState extends State<ChatsScreen> {
                 ),
               ],
             ),
-            SizedBox(
-                height: 350, child: Lottie.asset('assets/lottie/shpere.json')),
+            Expanded(
+              child: SizedBox(
+                  height: 350, child: Lottie.asset('assets/lottie/shpere.json')),
+            ),
             //Lottie.network('https://lottie.host/embed/ce2a6d09-648e-4e70-8165-0700da3f38f4/FUHnxn9bdg.json'),
-            const Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Padding(
-                  padding: EdgeInsets.only(left: 16.0, bottom: 20),
-                  child: Text(
-                    'Go a head, I\'m listening',
-                    style: TextStyle(
-                        color: globals.lavandaCard,
-                        //fontSize: 25,
-                        fontWeight: FontWeight.bold),
-                  ),
+            SingleChildScrollView(
+              scrollDirection: Axis.vertical,
+              child: SizedBox(
+                height: 200,
+
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Text(
+                        textAlign: TextAlign.center,
+                        maxLines: 3,
+                        //AI text, example: 'Go a head, I\'m listening',
+                        aiText,
+                        style: const TextStyle(
+                            color: globals.lavandaCard,
+                            //fontSize: 25,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ],
                 ),
-              ],
+              ),
             ),
             Padding(
               padding: const EdgeInsets.only(bottom: 120.0),
@@ -216,7 +235,7 @@ class _ChatsScreenState extends State<ChatsScreen> {
                   Padding(
                     padding: const EdgeInsets.only(bottom: 20.0),
                     child: AvatarGlow(
-                        repeat: isListening ? true : false,
+                        //repeat: isListening ? true : false,
                         startDelay: const Duration(milliseconds: 1000),
                         glowColor: globals.lavandaCard,
                         glowShape: BoxShape.circle,
@@ -235,8 +254,8 @@ class _ChatsScreenState extends State<ChatsScreen> {
                               radius: 999.0,
                               child: Icon(
                                   isListening
-                                      ? FontAwesomeIcons.microphoneSlash
-                                      : FontAwesomeIcons.microphone,
+                                      ? FontAwesomeIcons.microphone
+                                      : FontAwesomeIcons.microphoneSlash,
                                   color: Colors.white,
                                   size: 30.0),
                             ),
@@ -251,7 +270,7 @@ class _ChatsScreenState extends State<ChatsScreen> {
                     child: const SizedBox(
                       width: 40.0,
                       height: 40.0,
-                      child: Icon(FontAwesomeIcons.keyboard,
+                      child: Icon(FontAwesomeIcons.xmark,
                           color: globals.greyLavanda, size: 30.0),
                     ),
                   ),

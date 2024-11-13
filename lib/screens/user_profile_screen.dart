@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:stem/src/constants.dart' as globals;
 import 'package:stem/widgets/appbar_row_widget.dart';
@@ -104,7 +105,32 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                           children: [
                             InkWell(
                               onTap: () {
-                                Get.toNamed('/quiz');
+                                 showDialog(
+                                      context: context,
+                                      builder: (BuildContext context) {
+                                        return AlertDialog(
+                                          content: const Text(
+                                             'Answer these 21 quick questions to discover subject that might be a good fit for you.',
+                                          ),
+                                          actions: [
+                                            TextButton(
+                                              onPressed: () {
+                                                Get.toNamed('/quiz');
+                                              },
+                                              child: const Text(
+                                                "Play",
+                                                style: TextStyle(
+                                                    fontSize: 18, fontFamily: 'Lora'),
+                                              ),
+                                            ),
+                                            IconButton(
+                                                onPressed: () {
+                                                  
+                                                },
+                                                icon: const Icon(FontAwesomeIcons.xmark))
+                                          ],
+                                        );
+                                      });
                               },
                               child: Container(
                                 decoration: BoxDecoration(
