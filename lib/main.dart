@@ -3,7 +3,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:stem/screens/cover_letter_generator_screen.dart';
-import 'package:stem/screens/levelup_screen.dart';
 import 'package:stem/screens/message_screen.dart';
 import 'firebase_options.dart';
 import 'package:stem/screens/astronomy_screen.dart';
